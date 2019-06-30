@@ -20,8 +20,16 @@ public class EPNavController: UINavigationController {
         public var shadowColor: UIColor = #colorLiteral(red: 0.3450980392, green: 0.3843137255, blue: 0.4431372549, alpha: 1)
         public var shadowOpacity: Float = 0.4
         
-        public var headlineFont: UIFont = .systemFont(ofSize: 17, weight: .semibold)
-        public var backButtonFont: UIFont = .systemFont(ofSize: 17)
+        public var attributedNavTitle: (_ text: String) -> NSAttributedString = { text in
+            let font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+            return NSAttributedString(string: text,
+                                      attributes: [NSAttributedString.Key.font: font])
+        }
+        public var attributedBackButtonTitle: (_ text: String) -> NSAttributedString = { text in
+            let font = UIFont.systemFont(ofSize: 17)
+            return NSAttributedString(string: text,
+                                      attributes: [NSAttributedString.Key.font: font])
+        }
     }
     
     public var backgroundColor: UIColor = .white {
