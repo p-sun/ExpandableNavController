@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        EPNavController.appearance.tintColor = #colorLiteral(red: 0.4520817399, green: 0.3181101084, blue: 0.8320295811, alpha: 1)
+        EPNavController.appearance.navCornerRadius = 30
+        EPNavController.appearance.topNavFromLayoutGuide = 60
+        EPNavController.appearance.shadowColor = #colorLiteral(red: 0.3450980392, green: 0.3843137255, blue: 0.4431372549, alpha: 1)
+        EPNavController.appearance.shadowOpacity = 0.4
+        EPNavController.appearance.headlineFont = .systemFont(ofSize: 17, weight: .semibold)
+        EPNavController.appearance.backButtonFont = .systemFont(ofSize: 17)
+        
         return true
     }
 
