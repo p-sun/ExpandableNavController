@@ -10,10 +10,12 @@ import UIKit
 
 class ViewController6: UIViewController, EPNavControllerDelegate {
     
-    private let yellowView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9033690095, green: 0.9400885105, blue: 0.4191256762, alpha: 1)
-        view.layer.cornerRadius = 24
+    private let imageView: UIView = {
+        let view = UIImageView()
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFill
+        view.image = #imageLiteral(resourceName: "water")
+        view.layer.cornerRadius = 30
         return view
     }()
     
@@ -27,9 +29,9 @@ class ViewController6: UIViewController, EPNavControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(yellowView)
-        constrainTopToEPNavBarBottom(yellowView) // With this!
-        yellowView.constrainEdgesHorizontally(to: view, offset: 30)
-        yellowView.constrainHeight(100)
+        view.addSubview(imageView)
+        constrainTopToEPNavBarBottom(imageView) // With this!
+        imageView.constrainEdgesHorizontally(to: view, offset: 20)
+        imageView.constrainHeight(100)
     }
 }

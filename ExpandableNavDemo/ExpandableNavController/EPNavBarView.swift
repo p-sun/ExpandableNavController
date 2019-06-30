@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum EPNavBarCenter {
+public enum EPNavBarCenter {
     case title(_ text: String)
     case image(_ image: UIImage, height: CGFloat)
 }
 
-class EPNavBarView: UIView {
+public class EPNavBarView: UIView {
     
     var backButtonPressed: (() -> Void)?
 
@@ -41,7 +41,7 @@ class EPNavBarView: UIView {
         commonInit()
     }
     
-    func addSubview(with centerConfig: EPNavBarCenter) -> UIView {
+    public func addSubview(with centerConfig: EPNavBarCenter) -> UIView {
         switch centerConfig {
         case .title(let title):
             return addTitleLabelSubview(title)
@@ -72,9 +72,7 @@ class EPNavBarView: UIView {
         return imageView
     }
     
-    private func commonInit() {
-        backgroundColor = .white
-        
+    private func commonInit() {        
         addSubview(backButton)
         addSubview(centerContent)
         constraintViews()

@@ -6,7 +6,7 @@
 
 import UIKit
 
-protocol EPNavControllerDelegate {
+public protocol EPNavControllerDelegate {
     func supplementary() -> EPSupplementary
     func navBarCenter() -> EPNavBarCenter?
 }
@@ -24,16 +24,16 @@ extension EPNavControllerDelegate {
 extension EPNavControllerDelegate where Self: UIViewController {
     
     @discardableResult
-    func constrainTopToNavigationBar(_ mainView: UIView) -> NSLayoutConstraint {
+    public func constrainTopToEPNavBarBottom(_ mainView: UIView, offset: CGFloat = 0) -> NSLayoutConstraint {
         return mainView.constrainTopToTopLayoutGuide(
             of: self,
             inset: EPNavController.appearance.topNavFromLayoutGuide
                 + supplementary().containerHeight
-                + EPNavController.appearance.navCornerRadius)
+                + offset)
     }
 }
 
-struct EPSupplementary {
+public struct EPSupplementary {
     let view: UIView?
     let topPadding: CGFloat
     let viewHeight: CGFloat

@@ -17,7 +17,7 @@ class ViewController: UIViewController, EPNavControllerDelegate {
 
 extension EPSupplementary {
     
-    init(largeTitle: String, fontSize: CGFloat = 30) {
+    init(largeTitle: String, fontSize: CGFloat = 28) {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
         label.text = largeTitle

@@ -15,6 +15,6 @@ class ViewController2: UIViewController, EPNavControllerDelegate {
     }
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "Can Have Title Image")
+        return EPSupplementary(largeTitle: "Can Have a Title Image")
     }
 }

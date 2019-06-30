@@ -6,28 +6,47 @@
 
 import UIKit
 
-class EPNavController: UINavigationController {
+public class EPNavController: UINavigationController {
     
-    static var appearance = Appearance()
+    public static var appearance = Appearance()
     
-    struct Appearance {
-        var tintColor: UIColor? = #colorLiteral(red: 0.4520817399, green: 0.3181101084, blue: 0.8320295811, alpha: 1)
+    public struct Appearance {
+        public var tintColor: UIColor?
+        public var backgroundColor: UIColor = .white
         
-        var navCornerRadius: CGFloat = 30
-        var topNavFromLayoutGuide: CGFloat = 60
+        public var navCornerRadius: CGFloat = 30
+        public var topNavFromLayoutGuide: CGFloat = 60
         
-        var shadowColor: UIColor = #colorLiteral(red: 0.3450980392, green: 0.3843137255, blue: 0.4431372549, alpha: 1)
-        var shadowOpacity: Float = 0.4
+        public var shadowColor: UIColor = #colorLiteral(red: 0.3450980392, green: 0.3843137255, blue: 0.4431372549, alpha: 1)
+        public var shadowOpacity: Float = 0.4
         
-        var headlineFont: UIFont = .systemFont(ofSize: 17, weight: .semibold)
-        var backButtonFont: UIFont = .systemFont(ofSize: 17)
+        public var headlineFont: UIFont = .systemFont(ofSize: 17, weight: .semibold)
+        public var backButtonFont: UIFont = .systemFont(ofSize: 17)
     }
     
-    lazy var navBar: EPNavBarView = {
+    public var backgroundColor: UIColor = .white {
+        didSet {
+            shadowView.backgroundColor = backgroundColor
+        }
+    }
+    
+    public var tintColor: UIColor? = nil {
+        didSet {
+            view.tintColor = tintColor
+        }
+    }
+    
+    public lazy var navBar: EPNavBarView = {
         let view = EPNavBarView()
         view.backButtonPressed = { [weak self] in
             _ = self?.popViewController(animated: true)
         }
+        return view
+    }()
+    
+    private lazy var shadowView: UIView = {
+        let view = ShadowCard()
+        view.backgroundColor = backgroundColor
         return view
     }()
     
@@ -39,18 +58,15 @@ class EPNavController: UINavigationController {
         return view
     }()
     
-    private lazy var shadowView: UIView = {
-        let view = ShadowCard()
-        view.backgroundColor = .white
-        return view
-    }()
-    
     private var containerHeightConstraint: NSLayoutConstraint?
     
     private var interactor: EPEdgePanInteractor!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        backgroundColor = EPNavController.appearance.backgroundColor
+        tintColor = EPNavController.appearance.tintColor
         
         setNavigationBarHidden(true, animated: false)
         
@@ -58,8 +74,6 @@ class EPNavController: UINavigationController {
         
         interactor = EPEdgePanInteractor(attachTo: self)
         
-        view.tintColor = EPNavController.appearance.tintColor
-
         view.addSubview(shadowView)
         view.addSubview(containerView)
         view.addSubview(navBar)
@@ -70,17 +84,19 @@ class EPNavController: UINavigationController {
     private func constrainViews() {
         navBar.constrainTop(to: view)
         navBar.constrainEdgesHorizontally(to: view)
-        _ = navBar.constrainBottomToTopLayoutGuide(of: self, offset: EPNavController.appearance.topNavFromLayoutGuide)
+        _ = navBar.constrainBottomToTopLayoutGuide(
+            of: self,
+            offset: EPNavController.appearance.topNavFromLayoutGuide)
         
         containerView.constrainEdgesHorizontally(to: view)
         containerView.constrainTopToBottom(of: navBar)
         
-        shadowView.constrainTopToTopLayoutGuide(of: self)
-        shadowView.constrainEdgesHorizontally(to: view, rightInset: -EPNavController.appearance.navCornerRadius)
+        shadowView.constrainTop(to: view)
+        shadowView.constrainEdgesHorizontally(to: view)
         shadowView.constrainBottom(to: containerView, relation: .equalOrGreater)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         guard containerHeightConstraint == nil else {
@@ -102,7 +118,7 @@ class EPNavController: UINavigationController {
 }
 
 extension EPNavController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let containerHeightConstraint = containerHeightConstraint else {
             return nil
@@ -135,7 +151,7 @@ extension EPNavController: UINavigationControllerDelegate {
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.isActive ? interactor : nil
     }
 }
@@ -175,6 +191,8 @@ private class ShadowCard: UIView {
     
     func setup() {
         layer.cornerRadius = EPNavController.appearance.navCornerRadius
+        layer.maskedCorners = [.layerMinXMaxYCorner]
+        
         layer.shadowColor = EPNavController.appearance.shadowColor.cgColor
         layer.shadowOpacity = EPNavController.appearance.shadowOpacity
         layer.shadowRadius = 16
