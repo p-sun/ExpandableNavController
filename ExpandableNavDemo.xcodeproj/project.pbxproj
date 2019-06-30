@@ -11,7 +11,8 @@
 		9B0B5ADD22C88DB000D76632 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5ADC22C88DB000D76632 /* ViewController3.swift */; };
 		9B0B5ADF22C88DBD00D76632 /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5ADE22C88DBD00D76632 /* ViewController4.swift */; };
 		9B0B5AE122C8979400D76632 /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE022C8979400D76632 /* ViewController5.swift */; };
-		9B0B5AE322C89A0A00D76632 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE222C89A0A00D76632 /* ViewController6.swift */; };
+		9B0B5AE322C89A0A00D76632 /* ViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE222C89A0A00D76632 /* ViewController7.swift */; };
+		9B0B5AE922C921E100D76632 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE822C921E100D76632 /* ViewController6.swift */; };
 		9B68911D22C683E90096AC1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68911C22C683E90096AC1B /* AppDelegate.swift */; };
 		9B68911F22C683E90096AC1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68911E22C683E90096AC1B /* ViewController.swift */; };
 		9B68912222C683E90096AC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B68912022C683E90096AC1B /* Main.storyboard */; };
@@ -47,7 +48,8 @@
 		9B0B5ADC22C88DB000D76632 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		9B0B5ADE22C88DBD00D76632 /* ViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
 		9B0B5AE022C8979400D76632 /* ViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
-		9B0B5AE222C89A0A00D76632 /* ViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
+		9B0B5AE222C89A0A00D76632 /* ViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController7.swift; sourceTree = "<group>"; };
+		9B0B5AE822C921E100D76632 /* ViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
 		9B68911922C683E90096AC1B /* ExpandableNavDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableNavDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B68911C22C683E90096AC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B68911E22C683E90096AC1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +174,8 @@
 				9B0B5ADC22C88DB000D76632 /* ViewController3.swift */,
 				9B0B5ADE22C88DBD00D76632 /* ViewController4.swift */,
 				9B0B5AE022C8979400D76632 /* ViewController5.swift */,
-				9B0B5AE222C89A0A00D76632 /* ViewController6.swift */,
+				9B0B5AE822C921E100D76632 /* ViewController6.swift */,
+				9B0B5AE222C89A0A00D76632 /* ViewController7.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -303,8 +306,9 @@
 				9B68914422C684950096AC1B /* EPNavBarView.swift in Sources */,
 				9B68914822C684950096AC1B /* EPNavBarBackButton.swift in Sources */,
 				9B68914522C684950096AC1B /* EPNavController.swift in Sources */,
+				9B0B5AE922C921E100D76632 /* ViewController6.swift in Sources */,
 				9B68914E22C6853F0096AC1B /* UIView+Constraints.swift in Sources */,
-				9B0B5AE322C89A0A00D76632 /* ViewController6.swift in Sources */,
+				9B0B5AE322C89A0A00D76632 /* ViewController7.swift in Sources */,
 				9B68914622C684950096AC1B /* EPTransitionAnimator.swift in Sources */,
 				9B68914D22C6853F0096AC1B /* Constraints+Activation+Priority.swift in Sources */,
 			);
