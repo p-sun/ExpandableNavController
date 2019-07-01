@@ -52,7 +52,9 @@ public class EPNavBarView: UIView {
     
     private func addTitleLabelSubview(_ title: String) -> UIView {
         let label = UILabel()
-        label.attributedText = EPNavController.appearance.attributedNavTitle(title)
+        label.attributedText = NSAttributedString(
+            string: title,
+            attributes: EPNavController.appearance.titleTextAttributes)
         centerContent.addSubview(label)
         label.constrainCenterY(to: centerContent)
         label.constrainCenterX(to: centerContent)

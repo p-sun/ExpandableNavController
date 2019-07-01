@@ -26,7 +26,9 @@ class EPNavBarBackButton: UIControl {
     
     private lazy var backTitleLabel: UILabel = {
         let label = UILabel()
-        label.attributedText = EPNavController.appearance.attributedBackButtonTitle("Back")
+        label.attributedText = NSAttributedString(
+            string: "Back",
+            attributes: EPNavController.appearance.backTextAttributes)
         label.textColor = tintColor
         return label
     }()
