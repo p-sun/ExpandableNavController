@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewController1.swift
 //  ExpandableNavDemo
 //
 //  Created by Paige Sun on 2019-06-28.
@@ -8,14 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, EPNavControllerDelegate {
+class ViewController1: UIViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
         return EPSupplementary(largeTitle: "EPNavController")
-    }
-    
-    func navBarCenter() -> EPNavBarCenter? {
-        return EPNavBarCenter.title("Really very very long title")
     }
 }
 

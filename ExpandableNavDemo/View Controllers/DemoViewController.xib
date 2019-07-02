@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoViewController" customModule="ExpandableNavDemo" customModuleProvider="target">
             <connections>
-                <outlet property="nextButton" destination="56N-1p-cKa" id="AOW-72-pWF"/>
+                <outlet property="nextButton" destination="56N-1p-cKa" id="Qc0-qi-VgY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,7 +36,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="RMF-vg-nN5"/>
+                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="1lc-WI-9vg"/>
                     </connections>
                 </button>
             </subviews>

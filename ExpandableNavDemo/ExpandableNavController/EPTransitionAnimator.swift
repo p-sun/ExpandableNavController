@@ -113,9 +113,11 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             max(leftWidth, rightWidth, backButtonWidth) * 2
         let navBarCenterWidthStep: AnimationStep = animateCenterWidth(toWidth: centerWidth)
         
-        animateAll(fullDurationSteps: [horizontalTransitionStep, containerHeightStep(), navBarCenterWidthStep],
-                   animateOutSteps: fadeOutOldSubviewsSteps + [backButtonStep],
-                   animateInSteps: animateInSteps,
+        let animateOutSteps = fadeOutOldSubviewsSteps + [backButtonStep]
+        let fullDurationSteps =  [horizontalTransitionStep, containerHeightStep(), navBarCenterWidthStep]
+        animateAll(fullDurationSteps: fullDurationSteps + animateInSteps + animateOutSteps,
+                   animateOutSteps: [],
+                   animateInSteps: [],
                    using: context)
     }
     
@@ -213,20 +215,27 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     // MARK: - Animate Nav Bar's Center Width
     
     private func animateCenterWidth(toWidth: CGFloat) -> AnimationStep {
-        let centerWidthConstraint: NSLayoutConstraint = navBar.centerWidthConstraint
+        guard let centerWidthConstraint = navBar.centerWidthConstraint else {
+            return AnimationStep(onAnimation: {}, onCancel: nil, onSuccess: nil)
+        }
         let fromWidth = centerWidthConstraint.constant
         navBar.superview?.layoutIfNeeded()
         
         return AnimationStep(
-            onAnimation: { [weak self] in
+            onAnimation: {
                 centerWidthConstraint.constant = toWidth
-                self?.navBar.superview?.layoutIfNeeded()
+                self.navBar.superview?.layoutIfNeeded()
             }, onCancel: {
                 centerWidthConstraint.constant = fromWidth
+                for subview in self.navBar.centerContent.subviews {
+                    subview.sizeToFit()
+                }
             }, onSuccess: nil)
     }
     
     // MARK: - Animate Back Button
+    
+    private static var backButtonStartingWidth: CGFloat = 0
     
     private func animateBackButton() -> (backButtonWidth: CGFloat, animationStep: AnimationStep) {
         
@@ -234,7 +243,11 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         if vcCount <= 1 || toNavDelegate?.navBarLeft() != nil {
             return (0, fadeOutToRight(navBar.backButton))
         } else {
-            return (navBar.backButton.frame.width, fadeInToLeft(navBar.backButton))
+            // Back button can shrink and expand, we only want the collpsed width
+            if EPTransitionAnimator.backButtonStartingWidth == 0 {
+                EPTransitionAnimator.backButtonStartingWidth = navBar.backButton.frame.width
+            }
+            return (EPTransitionAnimator.backButtonStartingWidth, fadeInToLeft(navBar.backButton))
         }
     }
     
@@ -246,21 +259,21 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             backButton.superview?.layoutIfNeeded()
         }, onCancel: {
             backButton.imageLabelConstraint.constant = 5
-            backButton.superview?.layoutIfNeeded()
-        }, onSuccess: {
-            backButton.imageLabelConstraint.constant = 5
-            backButton.superview?.layoutIfNeeded()
-        })
+        },
+           onSuccess: nil)
     }
     
     private func fadeInToLeft(_ backButton: EPNavBarBackButton) -> AnimationStep {
+        let oldConstant = backButton.imageLabelConstraint.constant
         return AnimationStep(
             onAnimation: {
                 backButton.alpha = 1
                 
                 backButton.imageLabelConstraint.constant = 5
                 backButton.superview?.layoutIfNeeded()
-        }, onCancel: nil,
+        }, onCancel: {
+            backButton.imageLabelConstraint.constant = oldConstant
+        },
            onSuccess: nil)
     }
     
