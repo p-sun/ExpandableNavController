@@ -13,6 +13,10 @@ class ViewController: UIViewController, EPNavControllerDelegate {
     func supplementary() -> EPSupplementary {
         return EPSupplementary(largeTitle: "EPNavController")
     }
+    
+    func navBarCenter() -> EPNavBarCenter? {
+        return EPNavBarCenter.title("Really very very long title")
+    }
 }
 
 extension EPSupplementary {

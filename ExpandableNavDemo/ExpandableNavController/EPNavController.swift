@@ -8,6 +8,8 @@ import UIKit
 
 public class EPNavController: UINavigationController {
     
+    // MARK: - Public Vars
+    
     public static var appearance = Appearance()
     
     public struct Appearance {
@@ -39,13 +41,19 @@ public class EPNavController: UINavigationController {
         }
     }
     
-    public lazy var navBar: EPNavBarView = {
-        let view = EPNavBarView()
+    public lazy var navBar: EPNavBar = {
+        let view = EPNavBar()
         view.backButtonPressed = { [weak self] in
             _ = self?.popViewController(animated: true)
         }
         return view
     }()
+    
+    // MARK: - Private Vars
+    
+    private var containerHeightConstraint: NSLayoutConstraint?
+    
+    private var interactor: EPEdgePanInteractor!
     
     private lazy var shadowView: UIView = {
         let view = ShadowCard()
@@ -60,11 +68,7 @@ public class EPNavController: UINavigationController {
         view.layer.maskedCorners = [.layerMinXMaxYCorner]
         return view
     }()
-    
-    private var containerHeightConstraint: NSLayoutConstraint?
-    
-    private var interactor: EPEdgePanInteractor!
-    
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,7 +114,15 @@ public class EPNavController: UINavigationController {
             _ = delegate.supplementary().add(to: containerView)
             
             if let centerConfig = delegate.navBarCenter() {
-                _ = navBar.addSubview(with: centerConfig)
+                _ = navBar.setCenter(centerConfig)
+            }
+            
+            if let left = delegate.navBarLeft() {
+                _ = navBar.setLeftBarButtonItem(left)
+            }
+            
+            if let right = delegate.navBarRight() {
+                _ = navBar.setRightBarButtonItem(right)
             }
             
             containerHeightConstraint = containerView.constrainHeight(delegate.supplementary().containerHeight)

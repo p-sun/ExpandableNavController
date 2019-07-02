@@ -13,6 +13,9 @@
 		9B0B5AE122C8979400D76632 /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE022C8979400D76632 /* ViewController5.swift */; };
 		9B0B5AE322C89A0A00D76632 /* ViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE222C89A0A00D76632 /* ViewController7.swift */; };
 		9B0B5AE922C921E100D76632 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B5AE822C921E100D76632 /* ViewController6.swift */; };
+		9B18E28622CAE13D005594E5 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18E28422CAE13D005594E5 /* DemoViewController.swift */; };
+		9B18E28722CAE13D005594E5 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B18E28522CAE13D005594E5 /* DemoViewController.xib */; };
+		9B18E28922CAE491005594E5 /* AnimationTestViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18E28822CAE491005594E5 /* AnimationTestViewControllers.swift */; };
 		9B68911D22C683E90096AC1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68911C22C683E90096AC1B /* AppDelegate.swift */; };
 		9B68911F22C683E90096AC1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68911E22C683E90096AC1B /* ViewController.swift */; };
 		9B68912222C683E90096AC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B68912022C683E90096AC1B /* Main.storyboard */; };
@@ -20,7 +23,7 @@
 		9B68912722C683EA0096AC1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B68912522C683EA0096AC1B /* LaunchScreen.storyboard */; };
 		9B68913222C683EA0096AC1B /* ExpandableNavDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68913122C683EA0096AC1B /* ExpandableNavDemoTests.swift */; };
 		9B68914322C684950096AC1B /* EPEdgePanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68913D22C684950096AC1B /* EPEdgePanInteractor.swift */; };
-		9B68914422C684950096AC1B /* EPNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68913E22C684950096AC1B /* EPNavBarView.swift */; };
+		9B68914422C684950096AC1B /* EPNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68913E22C684950096AC1B /* EPNavBar.swift */; };
 		9B68914522C684950096AC1B /* EPNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68913F22C684950096AC1B /* EPNavController.swift */; };
 		9B68914622C684950096AC1B /* EPTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68914022C684950096AC1B /* EPTransitionAnimator.swift */; };
 		9B68914722C684950096AC1B /* EPNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68914122C684950096AC1B /* EPNavControllerDelegate.swift */; };
@@ -31,6 +34,7 @@
 		9B68915422C692360096AC1B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68915322C692360096AC1B /* NibLoadable.swift */; };
 		9B68915622C696810096AC1B /* OceanImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B68915522C696810096AC1B /* OceanImageView.xib */; };
 		9B68915A22C696B60096AC1B /* OceanImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68915922C696B60096AC1B /* OceanImageView.swift */; };
+		9B98D32F22CADD770045E00C /* ViewController8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98D32E22CADD770045E00C /* ViewController8.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,9 @@
 		9B0B5AE022C8979400D76632 /* ViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
 		9B0B5AE222C89A0A00D76632 /* ViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController7.swift; sourceTree = "<group>"; };
 		9B0B5AE822C921E100D76632 /* ViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
+		9B18E28422CAE13D005594E5 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		9B18E28522CAE13D005594E5 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		9B18E28822CAE491005594E5 /* AnimationTestViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTestViewControllers.swift; sourceTree = "<group>"; };
 		9B68911922C683E90096AC1B /* ExpandableNavDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableNavDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B68911C22C683E90096AC1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B68911E22C683E90096AC1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +68,7 @@
 		9B68913122C683EA0096AC1B /* ExpandableNavDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableNavDemoTests.swift; sourceTree = "<group>"; };
 		9B68913322C683EA0096AC1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B68913D22C684950096AC1B /* EPEdgePanInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPEdgePanInteractor.swift; sourceTree = "<group>"; };
-		9B68913E22C684950096AC1B /* EPNavBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBarView.swift; sourceTree = "<group>"; };
+		9B68913E22C684950096AC1B /* EPNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBar.swift; sourceTree = "<group>"; };
 		9B68913F22C684950096AC1B /* EPNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavController.swift; sourceTree = "<group>"; };
 		9B68914022C684950096AC1B /* EPTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPTransitionAnimator.swift; sourceTree = "<group>"; };
 		9B68914122C684950096AC1B /* EPNavControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavControllerDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 		9B68915322C692360096AC1B /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		9B68915522C696810096AC1B /* OceanImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OceanImageView.xib; sourceTree = "<group>"; };
 		9B68915922C696B60096AC1B /* OceanImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OceanImageView.swift; sourceTree = "<group>"; };
+		9B98D32E22CADD770045E00C /* ViewController8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController8.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +149,7 @@
 				9B68913F22C684950096AC1B /* EPNavController.swift */,
 				9B68914122C684950096AC1B /* EPNavControllerDelegate.swift */,
 				9B68914222C684950096AC1B /* EPNavBarBackButton.swift */,
-				9B68913E22C684950096AC1B /* EPNavBarView.swift */,
+				9B68913E22C684950096AC1B /* EPNavBar.swift */,
 				9B68913D22C684950096AC1B /* EPEdgePanInteractor.swift */,
 				9B68914022C684950096AC1B /* EPTransitionAnimator.swift */,
 			);
@@ -176,6 +184,10 @@
 				9B0B5AE022C8979400D76632 /* ViewController5.swift */,
 				9B0B5AE822C921E100D76632 /* ViewController6.swift */,
 				9B0B5AE222C89A0A00D76632 /* ViewController7.swift */,
+				9B98D32E22CADD770045E00C /* ViewController8.swift */,
+				9B18E28822CAE491005594E5 /* AnimationTestViewControllers.swift */,
+				9B18E28422CAE13D005594E5 /* DemoViewController.swift */,
+				9B18E28522CAE13D005594E5 /* DemoViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B68912722C683EA0096AC1B /* LaunchScreen.storyboard in Resources */,
+				9B18E28722CAE13D005594E5 /* DemoViewController.xib in Resources */,
 				9B68915622C696810096AC1B /* OceanImageView.xib in Resources */,
 				9B68912422C683EA0096AC1B /* Assets.xcassets in Resources */,
 				9B68912222C683E90096AC1B /* Main.storyboard in Resources */,
@@ -299,16 +312,19 @@
 				9B0B5ADF22C88DBD00D76632 /* ViewController4.swift in Sources */,
 				9B68915A22C696B60096AC1B /* OceanImageView.swift in Sources */,
 				9B68914322C684950096AC1B /* EPEdgePanInteractor.swift in Sources */,
+				9B98D32F22CADD770045E00C /* ViewController8.swift in Sources */,
 				9B0B5ADD22C88DB000D76632 /* ViewController3.swift in Sources */,
 				9B68914F22C6853F0096AC1B /* Constrainable.swift in Sources */,
 				9B68914722C684950096AC1B /* EPNavControllerDelegate.swift in Sources */,
 				9B0B5ADB22C88D9D00D76632 /* ViewController2.swift in Sources */,
-				9B68914422C684950096AC1B /* EPNavBarView.swift in Sources */,
+				9B68914422C684950096AC1B /* EPNavBar.swift in Sources */,
 				9B68914822C684950096AC1B /* EPNavBarBackButton.swift in Sources */,
 				9B68914522C684950096AC1B /* EPNavController.swift in Sources */,
+				9B18E28922CAE491005594E5 /* AnimationTestViewControllers.swift in Sources */,
 				9B0B5AE922C921E100D76632 /* ViewController6.swift in Sources */,
 				9B68914E22C6853F0096AC1B /* UIView+Constraints.swift in Sources */,
 				9B0B5AE322C89A0A00D76632 /* ViewController7.swift in Sources */,
+				9B18E28622CAE13D005594E5 /* DemoViewController.swift in Sources */,
 				9B68914622C684950096AC1B /* EPTransitionAnimator.swift in Sources */,
 				9B68914D22C6853F0096AC1B /* Constraints+Activation+Priority.swift in Sources */,
 			);

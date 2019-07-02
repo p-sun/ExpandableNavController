@@ -10,6 +10,12 @@ protocol EPViewCountrollerCountable: class {
     func viewControllersCount() -> Int
 }
 
+private struct AnimationStep {
+    let onAnimation: () -> Void
+    let onCancel: (() -> Void)?
+    let onSuccess: (() -> Void)?
+}
+
 class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let presenting: Bool
@@ -17,11 +23,10 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let fromNavDelegate: EPNavControllerDelegate?
     private let supplimentaryViewContainer: UIView
     private let containerHeightConstraint: NSLayoutConstraint
-    private let navBar: EPNavBarView
+    private let navBar: EPNavBar
     private weak var viewControllerCountable: EPViewCountrollerCountable?
     
     private let animationDuration: TimeInterval = 0.3
-    private let animationOptions: UIView.AnimationOptions = .curveEaseOut
     private var isAnimating = true
     
     init(presenting: Bool,
@@ -29,7 +34,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
          fromNavDelegate: EPNavControllerDelegate?,
          supplimentaryViewContainer: UIView,
          containerHeightConstraint: NSLayoutConstraint,
-         navBar: EPNavBarView,
+         navBar: EPNavBar,
          viewControllerCountable: EPViewCountrollerCountable) {
         self.presenting = presenting
         self.toNavDelegate = toNavDelegate
@@ -55,48 +60,66 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let shadowedView = presenting ? toView : fromView
         setShadow(on: shadowedView)
         
-        animateHorizontalTransition(
+        let horizontalTransitionStep: AnimationStep = animateHorizontalTransition(
             transitionContainer: context.containerView,
             toView: toView,
-            fromView: fromView) { [weak self] completed in
+            fromView: fromView) { [weak self] in
                 context.completeTransition(!context.transitionWasCancelled)
                 self?.isAnimating = false
         }
         
-        animateContainerHeight(
-            toHeight: toNavDelegate?.supplementary().containerHeight ?? EPNavController.appearance.navCornerRadius,
-            fromHeight: fromNavDelegate?.supplementary().containerHeight ?? EPNavController.appearance.navCornerRadius,
-            using: context)
+        let fadeOutOldSubviewsSteps = fadeAndRemoveSubviews(supplimentaryViewContainer.subviews,
+                                                       navBar.centerSubviews,
+                                                       navBar.leftSubviews,
+                                                       navBar.rightSubviews)
         
-        for oldSubview in supplimentaryViewContainer.subviews {
-            fadeOutAndRemoveOnSuccess(oldSubview, using: context)
-        }
-        for oldSubview in navBar.centerSubviews {
-            fadeOutAndRemoveOnSuccess(oldSubview, using: context)
-        }
+        let (backButtonWidth, backButtonStep) = animateBackButton()
         
-        let vcCount = viewControllerCountable?.viewControllersCount() ?? 0
-        if vcCount <= 1 {
-            fadeOutToRight(navBar.backButton, using: context, onSuccess: {})
+        var animateInSteps = [AnimationStep]()
+        if let newSupView = toNavDelegate?.supplementary()
+            .add(to: supplimentaryViewContainer) {
+            newSupView.alpha = 0
+            let step = fadeInAndRemoveOnCancel(newSupView)
+            animateInSteps.append(step)
+        }
+        if let center = toNavDelegate?.navBarCenter() {
+            let newView = navBar.setCenter(center)
+            newView.alpha = 0
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
+        }
+        var leftWidth: CGFloat
+        if let barButtonItem = toNavDelegate?.navBarLeft() {
+            let newView = navBar.setLeftBarButtonItem(barButtonItem)
+            newView.alpha = 0
+            leftWidth = newView.intrinsicContentSize.width
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
         } else {
-            fadeInToLeft(navBar.backButton, using: context, onSuccess: {})
+            leftWidth = 0
+        }
+        var rightWidth: CGFloat
+        if let barButtonItem = toNavDelegate?.navBarRight() {
+            let newView = navBar.setRightBarButtonItem(barButtonItem)
+            newView.alpha = 0
+            rightWidth = newView.intrinsicContentSize.width
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
+        } else {
+            rightWidth = 0
         }
         
-        if let toNavDelegate = toNavDelegate {
-            if let newSupView = toNavDelegate
-                .supplementary()
-                .add(to: supplimentaryViewContainer) {
-                newSupView.alpha = 0
-                fadeInAndRemoveOnCancel(newSupView, using: context)
-            }
-            
-            if let centerConfig = toNavDelegate.navBarCenter() {
-                let navBarCenterView = navBar.addSubview(with: centerConfig)
-                navBarCenterView.alpha = 0
-                fadeInAndRemoveOnCancel(navBarCenterView, using: context)
-            }
-        }
+        let centerWidth = navBar.frame.width - 60 -
+            max(leftWidth, rightWidth, backButtonWidth) * 2
+        let navBarCenterWidthStep: AnimationStep = animateCenterWidth(toWidth: centerWidth)
+        
+        animateAll(fullDurationSteps: [horizontalTransitionStep, containerHeightStep(), navBarCenterWidthStep],
+                   animateOutSteps: fadeOutOldSubviewsSteps + [backButtonStep],
+                   animateInSteps: animateInSteps,
+                   using: context)
     }
+    
+    // MARK: - Set Shadows on the View Controller Left Edge
     
     private func setShadow(on view: UIView) {
         view.layer.shadowColor = UIColor.black.cgColor
@@ -105,22 +128,37 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         view.layer.shadowRadius = 10
     }
     
+    // MARK: - Fade Out Old Subviews
+    
+    private func fadeAndRemoveSubviews(_ subviewsArray: [UIView]...) -> [AnimationStep] {
+        var steps = [AnimationStep]()
+        for subviews in subviewsArray {
+            for subview in subviews {
+                let step = fadeOutAndRemoveOnSuccess(subview)
+                steps.append(step)
+            }
+        }
+        return steps
+    }
+    
     // MARK: - Animate Main View Controller Horizontally
     
-    private func animateHorizontalTransition(transitionContainer: UIView, toView: UIView, fromView: UIView, completion: @escaping (Bool) -> Void) {
+    private func animateHorizontalTransition(transitionContainer: UIView, toView: UIView, fromView: UIView, completion: @escaping () -> Void) -> AnimationStep {
         
         setupViewsForHorizontalTransition(container: transitionContainer,
                                           toView: toView,
                                           fromView: fromView)
         
-        UIView.animate(withDuration: animationDuration,
-                       delay: 0,
-                       options: animationOptions,
-                       animations: horizontalTransitionAnimations(toView: toView, fromView: fromView),
-                       completion: completion)
+        let onAnimation = horizontalTransitionAnimations(toView: toView,
+                                                         fromView: fromView)
+        
+        return AnimationStep(onAnimation: onAnimation,
+                             onCancel: completion,
+                             onSuccess: completion)
     }
     
     private func setupViewsForHorizontalTransition(container: UIView, toView: UIView, fromView: UIView) {
+        
         let width = fromView.frame.width
         let height = fromView.frame.height
         let completeRightFrame = CGRect(x: width, y: 0, width: width, height: height)
@@ -134,6 +172,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     private func horizontalTransitionAnimations(toView: UIView, fromView: UIView) -> () -> Void {
+        
         let width = fromView.frame.width
         let height = fromView.frame.height
         let centerFrame = CGRect(x: 0, y: 0, width: width, height: height)
@@ -154,79 +193,131 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - Animate Container Height
     
-    private func animateContainerHeight(toHeight: CGFloat, fromHeight: CGFloat, using context: UIViewControllerContextTransitioning) {
-        
+    private func containerHeightStep() -> AnimationStep {
+        let toHeight = toNavDelegate?.supplementary().containerHeight ??
+            EPNavController.appearance.navCornerRadius
+        let fromHeight = fromNavDelegate?.supplementary().containerHeight ??
+            EPNavController.appearance.navCornerRadius
         supplimentaryViewContainer.superview?.layoutIfNeeded()
         
-        let animations: () -> Void = { [weak self] in
-            self?.containerHeightConstraint.constant = toHeight
-            self?.supplimentaryViewContainer.superview?.layoutIfNeeded()
-        }
-        let completion: (Bool) -> Void = { [weak self] _ in
-            if context.transitionWasCancelled {
+        return AnimationStep(
+            onAnimation: { [weak self] in
+                self?.containerHeightConstraint.constant = toHeight
+                self?.supplimentaryViewContainer.superview?.setNeedsLayout()
+                self?.supplimentaryViewContainer.superview?.layoutIfNeeded()
+            }, onCancel: { [weak self] in
                 self?.containerHeightConstraint.constant = fromHeight
-            }
-        }
-        UIView.animate(withDuration: animationDuration, delay: 0, options: animationOptions, animations: animations, completion: completion)
+            }, onSuccess: nil)
     }
     
-    // MARK: - Animate Fade In and Out
+    // MARK: - Animate Nav Bar's Center Width
     
-    private func fadeOutToRight(_ backButton: EPNavBarBackButton, using context: UIViewControllerContextTransitioning, onSuccess: @escaping () -> Void) {
+    private func animateCenterWidth(toWidth: CGFloat) -> AnimationStep {
+        let centerWidthConstraint: NSLayoutConstraint = navBar.centerWidthConstraint
+        let fromWidth = centerWidthConstraint.constant
+        navBar.superview?.layoutIfNeeded()
         
-        backButton.imageLabelConstraint.constant = 5
-        backButton.superview?.layoutIfNeeded()
-
-        let animations: () -> Void = {
+        return AnimationStep(
+            onAnimation: { [weak self] in
+                centerWidthConstraint.constant = toWidth
+                self?.navBar.superview?.layoutIfNeeded()
+            }, onCancel: {
+                centerWidthConstraint.constant = fromWidth
+            }, onSuccess: nil)
+    }
+    
+    // MARK: - Animate Back Button
+    
+    private func animateBackButton() -> (backButtonWidth: CGFloat, animationStep: AnimationStep) {
+        
+        let vcCount = viewControllerCountable?.viewControllersCount() ?? 0
+        if vcCount <= 1 || toNavDelegate?.navBarLeft() != nil {
+            return (0, fadeOutToRight(navBar.backButton))
+        } else {
+            return (navBar.backButton.frame.width, fadeInToLeft(navBar.backButton))
+        }
+    }
+    
+    private func fadeOutToRight(_ backButton: EPNavBarBackButton) -> AnimationStep {
+        return AnimationStep(onAnimation: {
             backButton.alpha = 0
             
             backButton.imageLabelConstraint.constant = 40
             backButton.superview?.layoutIfNeeded()
-        }
-        animateOut(using: context, animations: animations, onSuccess: onSuccess)
-    }
-    
-    private func fadeInToLeft(_ backButton: EPNavBarBackButton, using context: UIViewControllerContextTransitioning, onSuccess: @escaping () -> Void) {
-
-        let animations: () -> Void = {
-            backButton.alpha = 1
-            
+        }, onCancel: {
             backButton.imageLabelConstraint.constant = 5
             backButton.superview?.layoutIfNeeded()
-        }
-        animateOut(using: context, animations: animations, onSuccess: onSuccess)
+        }, onSuccess: {
+            backButton.imageLabelConstraint.constant = 5
+            backButton.superview?.layoutIfNeeded()
+        })
     }
     
-    private func fadeOutAndRemoveOnSuccess(_ fromView: UIView, using context: UIViewControllerContextTransitioning) {
-        animateOut(using: context,
-                   animations: { fromView.alpha = 0 },
-                   onSuccess: { fromView.removeFromSuperview() })
+    private func fadeInToLeft(_ backButton: EPNavBarBackButton) -> AnimationStep {
+        return AnimationStep(
+            onAnimation: {
+                backButton.alpha = 1
+                
+                backButton.imageLabelConstraint.constant = 5
+                backButton.superview?.layoutIfNeeded()
+        }, onCancel: nil,
+           onSuccess: nil)
     }
     
-    private func fadeInAndRemoveOnCancel(_ toView: UIView, using context: UIViewControllerContextTransitioning) {
-        animateIn(using: context,
-                  animations: { toView.alpha = 1 },
-                  onCancel: { toView.removeFromSuperview() })
-    }
-
-    // MARK: - Generic Animate In and Out
+    // MARK: - Generic Fade Animations
     
-    private func animateOut(using context: UIViewControllerContextTransitioning, animations: @escaping() -> Void, onSuccess: @escaping () -> Void) {
-        let completion: (Bool) -> Void = { _ in
-            if !context.transitionWasCancelled {
-                onSuccess()
-            }
-        }
-        UIView.animate(withDuration: animationDuration / 2, delay: 0, options: animationOptions, animations: animations, completion: completion)
+    private func fadeOutAndRemoveOnSuccess(_ fromView: UIView) -> AnimationStep {
+        return AnimationStep(
+            onAnimation: {
+                fromView.alpha = 0 },
+            onCancel: nil,
+            onSuccess: {
+                fromView.removeFromSuperview()
+        })
     }
     
-    private func animateIn(using context: UIViewControllerContextTransitioning, animations: @escaping () -> Void, onCancel: @escaping () -> Void) {
-        let completion: (Bool) -> Void = { _ in
-            if context.transitionWasCancelled {
-                onCancel()
-            }
-        }
-        UIView.animate(withDuration: animationDuration / 2, delay: animationDuration / 2, options: animationOptions, animations: animations, completion: completion)
+    private func fadeInAndRemoveOnCancel(_ toView: UIView) -> AnimationStep {
+        return AnimationStep(
+            onAnimation: {
+                toView.alpha = 1
+        }, onCancel: {
+            toView.removeFromSuperview()
+        }, onSuccess: nil)
+    }
+    
+    // MARK: - Animate All Steps with one UIView.animateKeyframes
+    
+    private func animateAll(fullDurationSteps: [AnimationStep],
+                            animateOutSteps: [AnimationStep],
+                            animateInSteps: [AnimationStep],
+                            using context: UIViewControllerContextTransitioning) {
+        
+        UIView.animateKeyframes(
+            withDuration: animationDuration, delay: 0, options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
+                    fullDurationSteps.forEach { $0.onAnimation() }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+                    animateOutSteps.forEach { $0.onAnimation() }
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+                    animateInSteps.forEach { $0.onAnimation() }
+                })
+        },
+            completion: { _ in
+                if context.transitionWasCancelled {
+                    animateOutSteps.forEach { $0.onCancel?() }
+                    animateInSteps.forEach { $0.onCancel?() }
+                    fullDurationSteps.forEach { $0.onCancel?() }
+                } else {
+                    animateOutSteps.forEach { $0.onSuccess?() }
+                    animateInSteps.forEach { $0.onSuccess?() }
+                    fullDurationSteps.forEach { $0.onSuccess?() }
+                }
+        })
     }
 }
 

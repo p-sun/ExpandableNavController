@@ -9,6 +9,8 @@ import UIKit
 public protocol EPNavControllerDelegate {
     func supplementary() -> EPSupplementary
     func navBarCenter() -> EPNavBarCenter?
+    func navBarLeft() -> EPBarButtonItem?
+    func navBarRight() -> EPBarButtonItem?
 }
 
 extension EPNavControllerDelegate {
@@ -19,6 +21,14 @@ extension EPNavControllerDelegate {
     func navBarCenter() -> EPNavBarCenter? {
         return nil
     }
+    
+    func navBarLeft() -> EPBarButtonItem? {
+        return nil
+    }
+    
+    func navBarRight() -> EPBarButtonItem? {
+        return nil
+    }    
 }
 
 extension EPNavControllerDelegate where Self: UIViewController {

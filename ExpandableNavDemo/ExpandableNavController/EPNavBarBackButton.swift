@@ -58,8 +58,10 @@ class EPNavBarBackButton: UIControl {
     }
     
     private func constraintViews() {
+        backTitleLabel.setCompressionResistance(.required, for: .horizontal)
         button.constrainEdges(to: self)
         
+        backImageView.setCompressionResistance(.required, for: .horizontal)
         backImageView.constrainEdgesVertically(to: self)
         backImageView.constrainLeft(to: button)
 
