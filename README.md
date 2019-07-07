@@ -99,7 +99,7 @@ github "p-sun/ExpandableNavController" ~> 1.0.0
 Copy the `ExpandableNavController` folder
 
 ## Bonus - Method Swizzling 🎉
-There's an example of how to Method Swizzle in Swift, which is to say, change the implementation of Apple's methods at runtime. This example replaces all color calls with a method to randomize the colors. Tap any view to randomize the colors of that view and all it's subviews.
+There's an example of how to Method Swizzle in Swift, which is to say, change the implementation of Apple's methods at runtime. This example replaces all color calls with a method to randomize the colors. Tap any view to randomize the colors of that view and all its subviews.
 
 To use this on any app, copy the `UIColor+Swizzling.swift` file, and call `ColorSwizzler.swizzle()`.
 
