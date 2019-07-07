@@ -1,0 +1,951 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BD5465D22D1A4D300514D32 /* EPNavController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5465322D1A4D300514D32 /* EPNavController.framework */; };
+		9BD5466222D1A4D300514D32 /* EPNavControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5466122D1A4D300514D32 /* EPNavControllerTests.swift */; };
+		9BD5466422D1A4D300514D32 /* EPNavController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD5465622D1A4D300514D32 /* EPNavController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BD5467822D1A4F600514D32 /* Constraints+Activation+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5466F22D1A4F500514D32 /* Constraints+Activation+Priority.swift */; };
+		9BD5467922D1A4F600514D32 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467022D1A4F500514D32 /* UIView+Constraints.swift */; };
+		9BD5467A22D1A4F600514D32 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467122D1A4F500514D32 /* Constrainable.swift */; };
+		9BD5467B22D1A4F600514D32 /* EPNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */; };
+		9BD5467C22D1A4F600514D32 /* EPNavBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */; };
+		9BD5467D22D1A4F600514D32 /* EPNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467422D1A4F500514D32 /* EPNavController.swift */; };
+		9BD5467E22D1A4F600514D32 /* EPNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467522D1A4F500514D32 /* EPNavBar.swift */; };
+		9BD5467F22D1A4F600514D32 /* EPTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */; };
+		9BD5468022D1A4F600514D32 /* EPEdgePanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */; };
+		9BD5468A22D1A57700514D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5468922D1A57700514D32 /* AppDelegate.swift */; };
+		9BD5468C22D1A57700514D32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5468B22D1A57700514D32 /* ViewController.swift */; };
+		9BD5468F22D1A57700514D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5468D22D1A57700514D32 /* Main.storyboard */; };
+		9BD5469122D1A57900514D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5469022D1A57900514D32 /* Assets.xcassets */; };
+		9BD5469422D1A57900514D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5469222D1A57900514D32 /* LaunchScreen.storyboard */; };
+		9BD5469F22D1A57900514D32 /* EPNavDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5469E22D1A57900514D32 /* EPNavDemoTests.swift */; };
+		9BD546BB22D1A79D00514D32 /* OceanImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546AA22D1A79D00514D32 /* OceanImageView.swift */; };
+		9BD546BC22D1A79D00514D32 /* OceanImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD546AB22D1A79D00514D32 /* OceanImageView.xib */; };
+		9BD546BD22D1A79D00514D32 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546AC22D1A79D00514D32 /* NibLoadable.swift */; };
+		9BD546BE22D1A79D00514D32 /* UIColor+Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546AE22D1A79D00514D32 /* UIColor+Swizzling.swift */; };
+		9BD546BF22D1A79D00514D32 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B022D1A79D00514D32 /* ViewController2.swift */; };
+		9BD546C022D1A79D00514D32 /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B122D1A79D00514D32 /* ViewController4.swift */; };
+		9BD546C122D1A79D00514D32 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B222D1A79D00514D32 /* ViewController6.swift */; };
+		9BD546C222D1A79D00514D32 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B322D1A79D00514D32 /* ViewController1.swift */; };
+		9BD546C322D1A79D00514D32 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B422D1A79D00514D32 /* ViewController3.swift */; };
+		9BD546C422D1A79D00514D32 /* ViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B522D1A79D00514D32 /* ViewController7.swift */; };
+		9BD546C522D1A79D00514D32 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD546B622D1A79D00514D32 /* DemoViewController.xib */; };
+		9BD546C622D1A79D00514D32 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B722D1A79D00514D32 /* DemoViewController.swift */; };
+		9BD546C722D1A79D00514D32 /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B822D1A79D00514D32 /* ViewController5.swift */; };
+		9BD546C822D1A79D00514D32 /* ViewController8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546B922D1A79D00514D32 /* ViewController8.swift */; };
+		9BD546C922D1A79D00514D32 /* AnimationViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546BA22D1A79D00514D32 /* AnimationViewControllers.swift */; };
+		9BD546CE22D1A88A00514D32 /* Constraints+Activation+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CB22D1A88A00514D32 /* Constraints+Activation+Priority.swift */; };
+		9BD546CF22D1A88A00514D32 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CC22D1A88A00514D32 /* UIView+Constraints.swift */; };
+		9BD546D022D1A88A00514D32 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CD22D1A88A00514D32 /* Constrainable.swift */; };
+		9BD546D222D1A95300514D32 /* EPSupplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546D122D1A95300514D32 /* EPSupplementary.swift */; };
+		9BD546D422D1A97D00514D32 /* EPBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */; };
+		9BD546DC22D1AB8500514D32 /* EPNavController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5465322D1A4D300514D32 /* EPNavController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BD546EB22D1B53900514D32 /* EPAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD546EA22D1B53900514D32 /* EPAssets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BD5465E22D1A4D300514D32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD5464A22D1A4D300514D32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD5465222D1A4D300514D32;
+			remoteInfo = EPNavController;
+		};
+		9BD5469B22D1A57900514D32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD5464A22D1A4D300514D32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD5468622D1A57700514D32;
+			remoteInfo = EPNavDemo;
+		};
+		9BD546A722D1A59100514D32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD5464A22D1A4D300514D32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD5465222D1A4D300514D32;
+			remoteInfo = EPNavController;
+		};
+		9BD546DE22D1ADC000514D32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD5464A22D1A4D300514D32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD5465222D1A4D300514D32;
+			remoteInfo = EPNavController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BD546DD22D1AB8500514D32 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9BD546DC22D1AB8500514D32 /* EPNavController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9BD5465322D1A4D300514D32 /* EPNavController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EPNavController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5465622D1A4D300514D32 /* EPNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPNavController.h; sourceTree = "<group>"; };
+		9BD5465722D1A4D300514D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD5465C22D1A4D300514D32 /* EPNavControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPNavControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5466122D1A4D300514D32 /* EPNavControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPNavControllerTests.swift; sourceTree = "<group>"; };
+		9BD5466322D1A4D300514D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD5466F22D1A4F500514D32 /* Constraints+Activation+Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constraints+Activation+Priority.swift"; sourceTree = "<group>"; };
+		9BD5467022D1A4F500514D32 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		9BD5467122D1A4F500514D32 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
+		9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavControllerDelegate.swift; sourceTree = "<group>"; };
+		9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBarBackButton.swift; sourceTree = "<group>"; };
+		9BD5467422D1A4F500514D32 /* EPNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavController.swift; sourceTree = "<group>"; };
+		9BD5467522D1A4F500514D32 /* EPNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBar.swift; sourceTree = "<group>"; };
+		9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPTransitionAnimator.swift; sourceTree = "<group>"; };
+		9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPEdgePanInteractor.swift; sourceTree = "<group>"; };
+		9BD5468722D1A57700514D32 /* EPNavDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPNavDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5468922D1A57700514D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BD5468B22D1A57700514D32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BD5468E22D1A57700514D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9BD5469022D1A57900514D32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BD5469322D1A57900514D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9BD5469522D1A57900514D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD5469A22D1A57900514D32 /* EPNavDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPNavDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5469E22D1A57900514D32 /* EPNavDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPNavDemoTests.swift; sourceTree = "<group>"; };
+		9BD546A022D1A57900514D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD546AA22D1A79D00514D32 /* OceanImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanImageView.swift; sourceTree = "<group>"; };
+		9BD546AB22D1A79D00514D32 /* OceanImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OceanImageView.xib; sourceTree = "<group>"; };
+		9BD546AC22D1A79D00514D32 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		9BD546AE22D1A79D00514D32 /* UIColor+Swizzling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Swizzling.swift"; sourceTree = "<group>"; };
+		9BD546B022D1A79D00514D32 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		9BD546B122D1A79D00514D32 /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
+		9BD546B222D1A79D00514D32 /* ViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
+		9BD546B322D1A79D00514D32 /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
+		9BD546B422D1A79D00514D32 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		9BD546B522D1A79D00514D32 /* ViewController7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController7.swift; sourceTree = "<group>"; };
+		9BD546B622D1A79D00514D32 /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		9BD546B722D1A79D00514D32 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		9BD546B822D1A79D00514D32 /* ViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
+		9BD546B922D1A79D00514D32 /* ViewController8.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController8.swift; sourceTree = "<group>"; };
+		9BD546BA22D1A79D00514D32 /* AnimationViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewControllers.swift; sourceTree = "<group>"; };
+		9BD546CB22D1A88A00514D32 /* Constraints+Activation+Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constraints+Activation+Priority.swift"; sourceTree = "<group>"; };
+		9BD546CC22D1A88A00514D32 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		9BD546CD22D1A88A00514D32 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
+		9BD546D122D1A95300514D32 /* EPSupplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPSupplementary.swift; sourceTree = "<group>"; };
+		9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPBarButtonItem.swift; sourceTree = "<group>"; };
+		9BD546EA22D1B53900514D32 /* EPAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EPAssets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BD5465022D1A4D300514D32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5465922D1A4D300514D32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5465D22D1A4D300514D32 /* EPNavController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5468422D1A57700514D32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5469722D1A57900514D32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BD5464922D1A4D300514D32 = {
+			isa = PBXGroup;
+			children = (
+				9BD5465522D1A4D300514D32 /* EPNavController */,
+				9BD5466022D1A4D300514D32 /* EPNavControllerTests */,
+				9BD5468822D1A57700514D32 /* EPNavDemo */,
+				9BD5469D22D1A57900514D32 /* EPNavDemoTests */,
+				9BD5465422D1A4D300514D32 /* Products */,
+				9BD546D922D1AB6C00514D32 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9BD5465422D1A4D300514D32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5465322D1A4D300514D32 /* EPNavController.framework */,
+				9BD5465C22D1A4D300514D32 /* EPNavControllerTests.xctest */,
+				9BD5468722D1A57700514D32 /* EPNavDemo.app */,
+				9BD5469A22D1A57900514D32 /* EPNavDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BD5465522D1A4D300514D32 /* EPNavController */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5466D22D1A4F500514D32 /* Utilities */,
+				9BD546EA22D1B53900514D32 /* EPAssets.xcassets */,
+				9BD5467422D1A4F500514D32 /* EPNavController.swift */,
+				9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */,
+				9BD5467522D1A4F500514D32 /* EPNavBar.swift */,
+				9BD546D122D1A95300514D32 /* EPSupplementary.swift */,
+				9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */,
+				9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */,
+				9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */,
+				9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */,
+				9BD5465622D1A4D300514D32 /* EPNavController.h */,
+				9BD5465722D1A4D300514D32 /* Info.plist */,
+			);
+			path = EPNavController;
+			sourceTree = "<group>";
+		};
+		9BD5466022D1A4D300514D32 /* EPNavControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5466122D1A4D300514D32 /* EPNavControllerTests.swift */,
+				9BD5466322D1A4D300514D32 /* Info.plist */,
+			);
+			path = EPNavControllerTests;
+			sourceTree = "<group>";
+		};
+		9BD5466D22D1A4F500514D32 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5466E22D1A4F500514D32 /* Constraints */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9BD5466E22D1A4F500514D32 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5466F22D1A4F500514D32 /* Constraints+Activation+Priority.swift */,
+				9BD5467022D1A4F500514D32 /* UIView+Constraints.swift */,
+				9BD5467122D1A4F500514D32 /* Constrainable.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		9BD5468822D1A57700514D32 /* EPNavDemo */ = {
+			isa = PBXGroup;
+			children = (
+				9BD546AF22D1A79D00514D32 /* Demo View Controllers */,
+				9BD546A922D1A79D00514D32 /* Demo Views */,
+				9BD546AD22D1A79D00514D32 /* Bonus Color Swizzling */,
+				9BD546CA22D1A88A00514D32 /* Constraints */,
+				9BD5468922D1A57700514D32 /* AppDelegate.swift */,
+				9BD5468B22D1A57700514D32 /* ViewController.swift */,
+				9BD5468D22D1A57700514D32 /* Main.storyboard */,
+				9BD5469022D1A57900514D32 /* Assets.xcassets */,
+				9BD5469222D1A57900514D32 /* LaunchScreen.storyboard */,
+				9BD5469522D1A57900514D32 /* Info.plist */,
+			);
+			path = EPNavDemo;
+			sourceTree = "<group>";
+		};
+		9BD5469D22D1A57900514D32 /* EPNavDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5469E22D1A57900514D32 /* EPNavDemoTests.swift */,
+				9BD546A022D1A57900514D32 /* Info.plist */,
+			);
+			path = EPNavDemoTests;
+			sourceTree = "<group>";
+		};
+		9BD546A922D1A79D00514D32 /* Demo Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BD546AA22D1A79D00514D32 /* OceanImageView.swift */,
+				9BD546AB22D1A79D00514D32 /* OceanImageView.xib */,
+				9BD546AC22D1A79D00514D32 /* NibLoadable.swift */,
+			);
+			path = "Demo Views";
+			sourceTree = "<group>";
+		};
+		9BD546AD22D1A79D00514D32 /* Bonus Color Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				9BD546AE22D1A79D00514D32 /* UIColor+Swizzling.swift */,
+			);
+			path = "Bonus Color Swizzling";
+			sourceTree = "<group>";
+		};
+		9BD546AF22D1A79D00514D32 /* Demo View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9BD546B322D1A79D00514D32 /* ViewController1.swift */,
+				9BD546B022D1A79D00514D32 /* ViewController2.swift */,
+				9BD546B422D1A79D00514D32 /* ViewController3.swift */,
+				9BD546B122D1A79D00514D32 /* ViewController4.swift */,
+				9BD546B822D1A79D00514D32 /* ViewController5.swift */,
+				9BD546B222D1A79D00514D32 /* ViewController6.swift */,
+				9BD546B522D1A79D00514D32 /* ViewController7.swift */,
+				9BD546B922D1A79D00514D32 /* ViewController8.swift */,
+				9BD546B622D1A79D00514D32 /* DemoViewController.xib */,
+				9BD546B722D1A79D00514D32 /* DemoViewController.swift */,
+				9BD546BA22D1A79D00514D32 /* AnimationViewControllers.swift */,
+			);
+			path = "Demo View Controllers";
+			sourceTree = "<group>";
+		};
+		9BD546CA22D1A88A00514D32 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				9BD546CB22D1A88A00514D32 /* Constraints+Activation+Priority.swift */,
+				9BD546CC22D1A88A00514D32 /* UIView+Constraints.swift */,
+				9BD546CD22D1A88A00514D32 /* Constrainable.swift */,
+			);
+			name = Constraints;
+			path = EPNavController/Utilities/Constraints;
+			sourceTree = SOURCE_ROOT;
+		};
+		9BD546D922D1AB6C00514D32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BD5464E22D1A4D300514D32 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5466422D1A4D300514D32 /* EPNavController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9BD5465222D1A4D300514D32 /* EPNavController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD5466722D1A4D300514D32 /* Build configuration list for PBXNativeTarget "EPNavController" */;
+			buildPhases = (
+				9BD5464E22D1A4D300514D32 /* Headers */,
+				9BD5464F22D1A4D300514D32 /* Sources */,
+				9BD5465022D1A4D300514D32 /* Frameworks */,
+				9BD5465122D1A4D300514D32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EPNavController;
+			productName = EPNavController;
+			productReference = 9BD5465322D1A4D300514D32 /* EPNavController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9BD5465B22D1A4D300514D32 /* EPNavControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD5466A22D1A4D300514D32 /* Build configuration list for PBXNativeTarget "EPNavControllerTests" */;
+			buildPhases = (
+				9BD5465822D1A4D300514D32 /* Sources */,
+				9BD5465922D1A4D300514D32 /* Frameworks */,
+				9BD5465A22D1A4D300514D32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BD5465F22D1A4D300514D32 /* PBXTargetDependency */,
+			);
+			name = EPNavControllerTests;
+			productName = EPNavControllerTests;
+			productReference = 9BD5465C22D1A4D300514D32 /* EPNavControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9BD5468622D1A57700514D32 /* EPNavDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD546A122D1A57900514D32 /* Build configuration list for PBXNativeTarget "EPNavDemo" */;
+			buildPhases = (
+				9BD5468322D1A57700514D32 /* Sources */,
+				9BD5468422D1A57700514D32 /* Frameworks */,
+				9BD5468522D1A57700514D32 /* Resources */,
+				9BD546DD22D1AB8500514D32 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BD546DF22D1ADC000514D32 /* PBXTargetDependency */,
+			);
+			name = EPNavDemo;
+			productName = EPNavDemo;
+			productReference = 9BD5468722D1A57700514D32 /* EPNavDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BD5469922D1A57900514D32 /* EPNavDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD546A422D1A57900514D32 /* Build configuration list for PBXNativeTarget "EPNavDemoTests" */;
+			buildPhases = (
+				9BD5469622D1A57900514D32 /* Sources */,
+				9BD5469722D1A57900514D32 /* Frameworks */,
+				9BD5469822D1A57900514D32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BD546A822D1A59100514D32 /* PBXTargetDependency */,
+				9BD5469C22D1A57900514D32 /* PBXTargetDependency */,
+			);
+			name = EPNavDemoTests;
+			productName = EPNavDemoTests;
+			productReference = 9BD5469A22D1A57900514D32 /* EPNavDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BD5464A22D1A4D300514D32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Paige Sun";
+				TargetAttributes = {
+					9BD5465222D1A4D300514D32 = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+					9BD5465B22D1A4D300514D32 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					9BD5468622D1A57700514D32 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					9BD5469922D1A57900514D32 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 9BD5468622D1A57700514D32;
+					};
+				};
+			};
+			buildConfigurationList = 9BD5464D22D1A4D300514D32 /* Build configuration list for PBXProject "EPNavController" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BD5464922D1A4D300514D32;
+			productRefGroup = 9BD5465422D1A4D300514D32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BD5465222D1A4D300514D32 /* EPNavController */,
+				9BD5465B22D1A4D300514D32 /* EPNavControllerTests */,
+				9BD5468622D1A57700514D32 /* EPNavDemo */,
+				9BD5469922D1A57900514D32 /* EPNavDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BD5465122D1A4D300514D32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD546EB22D1B53900514D32 /* EPAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5465A22D1A4D300514D32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5468522D1A57700514D32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5469422D1A57900514D32 /* LaunchScreen.storyboard in Resources */,
+				9BD5469122D1A57900514D32 /* Assets.xcassets in Resources */,
+				9BD5468F22D1A57700514D32 /* Main.storyboard in Resources */,
+				9BD546BC22D1A79D00514D32 /* OceanImageView.xib in Resources */,
+				9BD546C522D1A79D00514D32 /* DemoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5469822D1A57900514D32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BD5464F22D1A4D300514D32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5467F22D1A4F600514D32 /* EPTransitionAnimator.swift in Sources */,
+				9BD5467A22D1A4F600514D32 /* Constrainable.swift in Sources */,
+				9BD5467B22D1A4F600514D32 /* EPNavControllerDelegate.swift in Sources */,
+				9BD5467822D1A4F600514D32 /* Constraints+Activation+Priority.swift in Sources */,
+				9BD546D422D1A97D00514D32 /* EPBarButtonItem.swift in Sources */,
+				9BD5468022D1A4F600514D32 /* EPEdgePanInteractor.swift in Sources */,
+				9BD5467922D1A4F600514D32 /* UIView+Constraints.swift in Sources */,
+				9BD546D222D1A95300514D32 /* EPSupplementary.swift in Sources */,
+				9BD5467D22D1A4F600514D32 /* EPNavController.swift in Sources */,
+				9BD5467C22D1A4F600514D32 /* EPNavBarBackButton.swift in Sources */,
+				9BD5467E22D1A4F600514D32 /* EPNavBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5465822D1A4D300514D32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5466222D1A4D300514D32 /* EPNavControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5468322D1A57700514D32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD546C322D1A79D00514D32 /* ViewController3.swift in Sources */,
+				9BD546C222D1A79D00514D32 /* ViewController1.swift in Sources */,
+				9BD546CE22D1A88A00514D32 /* Constraints+Activation+Priority.swift in Sources */,
+				9BD5468C22D1A57700514D32 /* ViewController.swift in Sources */,
+				9BD546C822D1A79D00514D32 /* ViewController8.swift in Sources */,
+				9BD546C622D1A79D00514D32 /* DemoViewController.swift in Sources */,
+				9BD546CF22D1A88A00514D32 /* UIView+Constraints.swift in Sources */,
+				9BD546C022D1A79D00514D32 /* ViewController4.swift in Sources */,
+				9BD546BE22D1A79D00514D32 /* UIColor+Swizzling.swift in Sources */,
+				9BD546D022D1A88A00514D32 /* Constrainable.swift in Sources */,
+				9BD546BD22D1A79D00514D32 /* NibLoadable.swift in Sources */,
+				9BD546C922D1A79D00514D32 /* AnimationViewControllers.swift in Sources */,
+				9BD546BB22D1A79D00514D32 /* OceanImageView.swift in Sources */,
+				9BD546C422D1A79D00514D32 /* ViewController7.swift in Sources */,
+				9BD546C122D1A79D00514D32 /* ViewController6.swift in Sources */,
+				9BD5468A22D1A57700514D32 /* AppDelegate.swift in Sources */,
+				9BD546BF22D1A79D00514D32 /* ViewController2.swift in Sources */,
+				9BD546C722D1A79D00514D32 /* ViewController5.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5469622D1A57900514D32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5469F22D1A57900514D32 /* EPNavDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BD5465F22D1A4D300514D32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD5465222D1A4D300514D32 /* EPNavController */;
+			targetProxy = 9BD5465E22D1A4D300514D32 /* PBXContainerItemProxy */;
+		};
+		9BD5469C22D1A57900514D32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD5468622D1A57700514D32 /* EPNavDemo */;
+			targetProxy = 9BD5469B22D1A57900514D32 /* PBXContainerItemProxy */;
+		};
+		9BD546A822D1A59100514D32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD5465222D1A4D300514D32 /* EPNavController */;
+			targetProxy = 9BD546A722D1A59100514D32 /* PBXContainerItemProxy */;
+		};
+		9BD546DF22D1ADC000514D32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD5465222D1A4D300514D32 /* EPNavController */;
+			targetProxy = 9BD546DE22D1ADC000514D32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9BD5468D22D1A57700514D32 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BD5468E22D1A57700514D32 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9BD5469222D1A57900514D32 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BD5469322D1A57900514D32 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BD5466522D1A4D300514D32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9BD5466622D1A4D300514D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9BD5466822D1A4D300514D32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EPNavController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BD5466922D1A4D300514D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EPNavController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavController;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BD5466B22D1A4D300514D32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BD5466C22D1A4D300514D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BD546A222D1A57900514D32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BD546A322D1A57900514D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BD546A522D1A57900514D32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPNavDemo.app/EPNavDemo";
+			};
+			name = Debug;
+		};
+		9BD546A622D1A57900514D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66T4X4PK9Q;
+				INFOPLIST_FILE = EPNavDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.paigesun.EPNavDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPNavDemo.app/EPNavDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BD5464D22D1A4D300514D32 /* Build configuration list for PBXProject "EPNavController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5466522D1A4D300514D32 /* Debug */,
+				9BD5466622D1A4D300514D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD5466722D1A4D300514D32 /* Build configuration list for PBXNativeTarget "EPNavController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5466822D1A4D300514D32 /* Debug */,
+				9BD5466922D1A4D300514D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD5466A22D1A4D300514D32 /* Build configuration list for PBXNativeTarget "EPNavControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5466B22D1A4D300514D32 /* Debug */,
+				9BD5466C22D1A4D300514D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD546A122D1A57900514D32 /* Build configuration list for PBXNativeTarget "EPNavDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD546A222D1A57900514D32 /* Debug */,
+				9BD546A322D1A57900514D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD546A422D1A57900514D32 /* Build configuration list for PBXNativeTarget "EPNavDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD546A522D1A57900514D32 /* Debug */,
+				9BD546A622D1A57900514D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BD5464A22D1A4D300514D32 /* Project object */;
+}
