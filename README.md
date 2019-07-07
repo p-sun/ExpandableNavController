@@ -85,7 +85,9 @@ EPNavController.appearance.titleTextAttributes = [
 EPNavController.appearance.backTextAttributes = [
     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
 ```
-## Carthage Installation
+## Installation
+
+### Carthage
 1. Install the latest version of [Carthage](https://github.com/Carthage/Carthage#installing-carthage)
 2. Add this line to your `Cartfile`
 ```
@@ -93,7 +95,7 @@ github "p-sun/ExpandableNavController" ~> 1.0.0
 ```
 3. Follow the [Carthage installation instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos)
 
-## Manual Installation
+### Manual
 Copy the `ExpandableNavController` folder
 
 ## Bonus - Method Swizzling 🎉
