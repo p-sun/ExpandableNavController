@@ -25,8 +25,36 @@ extension EPSupplementary {
         
         let parent = UIView()
         parent.addSubview(label)
-        label.constrainEdges(to: parent, insets: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
+        label.constrainTop(to: parent, offset: 26)
+        label.constrainEdgesHorizontally(to: parent, leftInset: 20, rightInset: 20)
         
         self.init(view: parent, topPadding: 0, viewHeight: 100, bottomPadding: 0)
+    }
+    
+    init(largeTitle: String, subtitle: String, viewHeight: CGFloat = 140) {
+        let titleLabel = UILabel()
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.text = largeTitle
+        titleLabel.numberOfLines = 0
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        subtitleLabel.text = subtitle
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.setHugging(.defaultLow, for: .vertical)
+        
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 14
+        stack.addArrangedSubview(titleLabel)
+        stack.addArrangedSubview(subtitleLabel)
+        
+        let parent = UIView()
+        parent.addSubview(stack)
+        
+        stack.constrainTop(to: parent, offset: 26)
+        stack.constrainEdgesHorizontally(to: parent, leftInset: 20, rightInset: 20)
+        
+        self.init(view: parent, topPadding: 0, viewHeight: viewHeight, bottomPadding: 0)
     }
 }

@@ -364,19 +364,6 @@
             </objects>
             <point key="canvasLocation" x="6357" y="773"/>
         </scene>
-        <!--Animation Root Nav Controller-->
-        <scene sceneID="Gc4-aQ-Sz8">
-            <objects>
-                <navigationController id="B2C-h7-HBj" customClass="AnimationRootNavController" customModule="ExpandableNavDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bMF-dh-YRG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c44-rF-Kxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="135" y="16"/>
-        </scene>
     </scenes>
     <resources>
         <image name="bgfood" width="4160" height="6240"/>

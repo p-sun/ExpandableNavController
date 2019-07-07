@@ -9,6 +9,7 @@
 import UIKit
 
 class AnimationViewController0: DemoViewController, EPNavControllerDelegate {
+    
     func supplementary() -> EPSupplementary {
         return EPSupplementary(largeTitle: "Button Animation Tests")
     }
@@ -24,18 +25,12 @@ class AnimationViewController0: DemoViewController, EPNavControllerDelegate {
     }
 }
 
-private extension EPBarButtonItem {
-    init(titleWithTapAction title: String) {
-        self.init(title: title, didTapButton: {
-            print("Button tapped")
-        })
-    }
-}
-
 class AnimationViewController1: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A long title and a long left button", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "A long title and \na long left button",
+            subtitle: "Left and right buttons always expands to their content size")
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -51,11 +46,13 @@ class AnimationViewController1: DemoViewController, EPNavControllerDelegate {
     }
 }
 
-
 class AnimationViewController2: DemoViewController, EPNavControllerDelegate {
-
+    
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A long title and a long right button", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "A long title and \na long right button",
+            subtitle: "The title fits into the width of the remaining space between the buttons, with a small padding on both sides",
+            viewHeight: 170)
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -74,11 +71,14 @@ class AnimationViewController2: DemoViewController, EPNavControllerDelegate {
 class AnimationViewController3: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A center image and a short right button", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "A center image of any height and \na short right button",
+            subtitle: "The image view's height is determined by the delegate (the view controller), and its contentMode is sizeToFit",
+        viewHeight: 170)
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "sushi"), height: 60)
+        return .image(#imageLiteral(resourceName: "water"), height: 60)
     }
     
     func navBarRight() -> EPBarButtonItem? {
@@ -93,7 +93,7 @@ class AnimationViewController3: DemoViewController, EPNavControllerDelegate {
 class AnimationViewController4: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A center image and a long right button", fontSize: 20)
+        return EPSupplementary(largeTitle: "A center image and \na long right button", fontSize: 20)
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -109,11 +109,12 @@ class AnimationViewController4: DemoViewController, EPNavControllerDelegate {
     }
 }
 
-
 class AnimationViewController5: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A center image and a long left button", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "A center image and \na long left button",
+            subtitle: "When there is a left button, the back button animates away")
     }
 
     func navBarCenter() -> EPNavBarCenter? {
@@ -132,7 +133,9 @@ class AnimationViewController5: DemoViewController, EPNavControllerDelegate {
 class AnimationViewController6: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "Back to a long title", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "Back to a long title",
+            subtitle: "When the left button is removed, the back button animates back in")
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -144,11 +147,12 @@ class AnimationViewController6: DemoViewController, EPNavControllerDelegate {
     }
 }
 
-
 class AnimationViewController7: DemoViewController, EPNavControllerDelegate {
     
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "Long title with Left Button", fontSize: 20)
+        return EPSupplementary(
+            largeTitle: "Animations are Interactive!",
+            subtitle: "Pan from the left edge to view transition animations!")
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -165,9 +169,11 @@ class AnimationViewController7: DemoViewController, EPNavControllerDelegate {
 }
 
 class AnimationViewController8: DemoViewController, EPNavControllerDelegate {
-    
+
     func supplementary() -> EPSupplementary {
-        return EPSupplementary(largeTitle: "A center image and a short left button", fontSize: 20)
+        return EPSupplementary(largeTitle: "☝️ This button turns on Party Mode",
+                               subtitle: "Party Mode allows you to tap any view to change its colors",
+                               viewHeight: 130)
     }
     
     func navBarCenter() -> EPNavBarCenter? {
@@ -175,7 +181,25 @@ class AnimationViewController8: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarLeft() -> EPBarButtonItem? {
-        return EPBarButtonItem(titleWithTapAction: "Left")
+        return EPBarButtonItem(title: "Bonus: Swizzle All Colors!!! 🌈",
+            didTapButton: { [weak self] in
+                ColorSwizzler.swizzle()
+                self?.popToRoot()
+        })
     }
     
+    private func popToRoot() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = vc
+        }
+    }
+}
+
+private extension EPBarButtonItem {
+    init(titleWithTapAction title: String) {
+        self.init(title: title, didTapButton: {
+            print("Button tapped")
+        })
+    }
 }

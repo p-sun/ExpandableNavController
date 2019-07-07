@@ -48,7 +48,7 @@ public class EPNavBar: UIView {
     
     var centerWidthConstraint: NSLayoutConstraint!
 
-    var centerContent = UIView()
+    private var centerContent = UIView()
     private var leftContent = UIView()
     private var rightContent = UIView()
     private var leftButtonTapped: (() -> Void)?

@@ -36,6 +36,8 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
          containerHeightConstraint: NSLayoutConstraint,
          navBar: EPNavBar,
          viewControllerCountable: EPViewCountrollerCountable) {
+        
+        
         self.presenting = presenting
         self.toNavDelegate = toNavDelegate
         self.fromNavDelegate = fromNavDelegate
@@ -74,48 +76,16 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                                        navBar.rightSubviews)
         
         let (backButtonWidth, backButtonStep) = animateBackButton()
-        
-        var animateInSteps = [AnimationStep]()
-        if let newSupView = toNavDelegate?.supplementary()
-            .add(to: supplimentaryViewContainer) {
-            newSupView.alpha = 0
-            let step = fadeInAndRemoveOnCancel(newSupView)
-            animateInSteps.append(step)
-        }
-        if let center = toNavDelegate?.navBarCenter() {
-            let newView = navBar.setCenter(center)
-            newView.alpha = 0
-            let step = fadeInAndRemoveOnCancel(newView)
-            animateInSteps.append(step)
-        }
-        var leftWidth: CGFloat
-        if let barButtonItem = toNavDelegate?.navBarLeft() {
-            let newView = navBar.setLeftBarButtonItem(barButtonItem)
-            newView.alpha = 0
-            leftWidth = newView.intrinsicContentSize.width
-            let step = fadeInAndRemoveOnCancel(newView)
-            animateInSteps.append(step)
-        } else {
-            leftWidth = 0
-        }
-        var rightWidth: CGFloat
-        if let barButtonItem = toNavDelegate?.navBarRight() {
-            let newView = navBar.setRightBarButtonItem(barButtonItem)
-            newView.alpha = 0
-            rightWidth = newView.intrinsicContentSize.width
-            let step = fadeInAndRemoveOnCancel(newView)
-            animateInSteps.append(step)
-        } else {
-            rightWidth = 0
-        }
-        
+        let (animateInSteps, leftWidth, rightWidth) = animateInContents()
         let centerWidth = navBar.frame.width - 60 -
             max(leftWidth, rightWidth, backButtonWidth) * 2
-        let navBarCenterWidthStep: AnimationStep = animateCenterWidth(toWidth: centerWidth)
+        let navBarCenterWidthStep = animateCenterWidth(toWidth: max(0, centerWidth))
         
         let animateOutSteps = fadeOutOldSubviewsSteps + [backButtonStep]
-        let fullDurationSteps =  [horizontalTransitionStep, containerHeightStep(), navBarCenterWidthStep]
-        animateAll(fullDurationSteps: fullDurationSteps + animateInSteps + animateOutSteps,
+        let animateSizeSteps =  [containerHeightStep(), navBarCenterWidthStep]
+        
+        // Change this method if you want to animate elements separately
+        animateAll(fullDurationSteps: [horizontalTransitionStep] + animateSizeSteps + animateInSteps + animateOutSteps,
                    animateOutSteps: [],
                    animateInSteps: [],
                    using: context)
@@ -128,6 +98,51 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         view.layer.shadowOpacity = 0.1
         view.layer.shadowOffset = CGSize(width: -5, height: 0)
         view.layer.shadowRadius = 10
+    }
+    
+    // MARK: - Animate in Supplementary view, left, right, and center contents
+    
+    private func animateInContents() -> (animationSteps: [AnimationStep], leftWidth: CGFloat, rightWidth: CGFloat)  {
+        
+        var animateInSteps = [AnimationStep]()
+        
+        if let newSupView = toNavDelegate?.supplementary()
+            .add(to: supplimentaryViewContainer) {
+            newSupView.alpha = 0
+            let step = fadeInAndRemoveOnCancel(newSupView)
+            animateInSteps.append(step)
+        }
+        
+        if let center = toNavDelegate?.navBarCenter() {
+            let newView = navBar.setCenter(center)
+            newView.alpha = 0
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
+        }
+        
+        var leftWidth: CGFloat
+        if let barButtonItem = toNavDelegate?.navBarLeft() {
+            let newView = navBar.setLeftBarButtonItem(barButtonItem)
+            newView.alpha = 0
+            leftWidth = newView.intrinsicContentSize.width
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
+        } else {
+            leftWidth = 0
+        }
+        
+        var rightWidth: CGFloat
+        if let barButtonItem = toNavDelegate?.navBarRight() {
+            let newView = navBar.setRightBarButtonItem(barButtonItem)
+            newView.alpha = 0
+            rightWidth = newView.intrinsicContentSize.width
+            let step = fadeInAndRemoveOnCancel(newView)
+            animateInSteps.append(step)
+        } else {
+            rightWidth = 0
+        }
+        
+        return (animateInSteps, leftWidth, rightWidth)
     }
     
     // MARK: - Fade Out Old Subviews
@@ -227,7 +242,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 self.navBar.superview?.layoutIfNeeded()
             }, onCancel: {
                 centerWidthConstraint.constant = fromWidth
-                for subview in self.navBar.centerContent.subviews {
+                for subview in self.navBar.centerSubviews {
                     subview.sizeToFit()
                 }
             }, onSuccess: nil)
