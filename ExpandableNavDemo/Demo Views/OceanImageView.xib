@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OceanImageView" customModule="ExpandableNavDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="titleLabel" destination="wCW-DN-ybG" id="P8o-mk-IzG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="597" height="439"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxO-bM-9Hv">
+                    <rect key="frame" x="0.0" y="44" width="597" height="361"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="eQv-Gu-otn">
+                    <rect key="frame" x="0.0" y="44" width="597" height="361"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCW-DN-ybG">
+                    <rect key="frame" x="0.0" y="44" width="597" height="361"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.46266242320000001" green="1" blue="0.96702726569999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="eQv-Gu-otn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0hK-Ud-nG4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wCW-DN-ybG" secondAttribute="trailing" id="3fq-2L-75H"/>
+                <constraint firstItem="sxO-bM-9Hv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6kI-lr-3az"/>
+                <constraint firstItem="eQv-Gu-otn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="JSj-qk-JUW"/>
+                <constraint firstItem="wCW-DN-ybG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="X17-t5-hS3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wCW-DN-ybG" secondAttribute="bottom" id="XRQ-0f-POb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sxO-bM-9Hv" secondAttribute="trailing" id="bpr-0v-73e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="eQv-Gu-otn" secondAttribute="bottom" id="iEq-Tk-Umg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eQv-Gu-otn" secondAttribute="trailing" id="il9-bQ-iFw"/>
+                <constraint firstItem="wCW-DN-ybG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ncA-61-QJb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="sxO-bM-9Hv" secondAttribute="bottom" id="x9m-OC-ajL"/>
+                <constraint firstItem="sxO-bM-9Hv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yAP-XJ-daI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="270.28985507246381" y="-28.459821428571427"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="water" width="2992" height="3992"/>
+    </resources>
+</document>

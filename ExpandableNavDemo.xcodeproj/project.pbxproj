@@ -124,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				9B68913C22C684950096AC1B /* ExpandableNavController */,
-				9B68915722C696870096AC1B /* View Controllers */,
-				9B68915822C696960096AC1B /* Views */,
+				9B68915722C696870096AC1B /* Demo View Controllers */,
+				9B68915822C696960096AC1B /* Demo Views */,
 				9BC3BDCB22CF13DA008BEFBE /* Bonus Color Swizzling */,
 				9B68911C22C683E90096AC1B /* AppDelegate.swift */,
 				9B68912022C683E90096AC1B /* Main.storyboard */,
@@ -177,7 +177,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		9B68915722C696870096AC1B /* View Controllers */ = {
+		9B68915722C696870096AC1B /* Demo View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				9B68911E22C683E90096AC1B /* ViewController1.swift */,
@@ -192,17 +192,17 @@
 				9B18E28422CAE13D005594E5 /* DemoViewController.swift */,
 				9B18E28522CAE13D005594E5 /* DemoViewController.xib */,
 			);
-			path = "View Controllers";
+			path = "Demo View Controllers";
 			sourceTree = "<group>";
 		};
-		9B68915822C696960096AC1B /* Views */ = {
+		9B68915822C696960096AC1B /* Demo Views */ = {
 			isa = PBXGroup;
 			children = (
 				9B68915322C692360096AC1B /* NibLoadable.swift */,
 				9B68915522C696810096AC1B /* OceanImageView.xib */,
 				9B68915922C696B60096AC1B /* OceanImageView.swift */,
 			);
-			path = Views;
+			path = "Demo Views";
 			sourceTree = "<group>";
 		};
 		9BC3BDCB22CF13DA008BEFBE /* Bonus Color Swizzling */ = {
