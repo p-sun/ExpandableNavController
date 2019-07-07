@@ -21,9 +21,8 @@ Each view controller optionally declare what goes into the navigation bar by con
 
 ```swift
 func supplementary() -> EPSupplementary {
-    let title = "...and its heights.\n\n○  top padding: 10\n○  height: 140\n○  bottom padding: 30"
     return EPSupplementary(
-        view: MyCustomView(title),
+        view: MyCustomView(),
         topPadding: 10,
         viewHeight: 140,
         bottomPadding: 30)
