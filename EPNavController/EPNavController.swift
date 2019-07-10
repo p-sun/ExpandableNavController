@@ -133,6 +133,33 @@ public class EPNavController: UINavigationController {
 }
 
 extension EPNavController: UINavigationControllerDelegate {
+ 
+    private class ReturnSingleViewControllerCount: EPViewCountrollerCountable {
+        func viewControllersCount() -> Int {
+            return 1
+        }
+    }
+    
+    override public func popToRootViewController(animated: Bool) -> [UIViewController]? {
+        guard let containerHeightConstraint = containerHeightConstraint else {
+            return nil
+        }
+        
+        if let rootViewController = viewControllers.first {
+            let animator = EPTransitionAnimator(
+                presenting: true,
+                toNavDelegate: rootViewController as? EPNavControllerDelegate,
+                fromNavDelegate: self as? EPNavControllerDelegate,
+                supplimentaryViewContainer: containerView,
+                containerHeightConstraint: containerHeightConstraint,
+                navBar: navBar,
+                viewControllerCountable: ReturnSingleViewControllerCount())
+            animator.animateJustNavBar()
+        }
+        
+        return super.popToRootViewController(animated: animated)
+    }
+    
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let containerHeightConstraint = containerHeightConstraint else {

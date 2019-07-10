@@ -70,10 +70,18 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 self?.isAnimating = false
         }
         
+        animateTransitionWithOptionalContext(animationSteps: [horizontalTransitionStep], context: context)
+    }
+    
+    func animateJustNavBar() {
+        animateTransitionWithOptionalContext(animationSteps: [], context: nil)
+    }
+    
+    private func animateTransitionWithOptionalContext(animationSteps: [AnimationStep], context: UIViewControllerContextTransitioning?) {
         let fadeOutOldSubviewsSteps = fadeAndRemoveSubviews(supplimentaryViewContainer.subviews,
-                                                       navBar.centerSubviews,
-                                                       navBar.leftSubviews,
-                                                       navBar.rightSubviews)
+                                                            navBar.centerSubviews,
+                                                            navBar.leftSubviews,
+                                                            navBar.rightSubviews)
         
         let (backButtonWidth, backButtonStep) = animateBackButton()
         let (animateInSteps, leftWidth, rightWidth) = animateInContents()
@@ -85,7 +93,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let animateSizeSteps =  [containerHeightStep(), navBarCenterWidthStep]
         
         // Change this method if you want to animate elements separately
-        animateAll(fullDurationSteps: [horizontalTransitionStep] + animateSizeSteps + animateInSteps + animateOutSteps,
+        animateAll(fullDurationSteps: animationSteps + animateInSteps + animateSizeSteps + animateInSteps + animateOutSteps,
                    animateOutSteps: [],
                    animateInSteps: [],
                    using: context)
@@ -318,7 +326,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private func animateAll(fullDurationSteps: [AnimationStep],
                             animateOutSteps: [AnimationStep],
                             animateInSteps: [AnimationStep],
-                            using context: UIViewControllerContextTransitioning) {
+                            using context: UIViewControllerContextTransitioning?) {
         
         UIView.animateKeyframes(
             withDuration: animationDuration, delay: 0, options: [],
@@ -336,7 +344,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 })
         },
             completion: { _ in
-                if context.transitionWasCancelled {
+                if let context = context, context.transitionWasCancelled {
                     animateOutSteps.forEach { $0.onCancel?() }
                     animateInSteps.forEach { $0.onCancel?() }
                     fullDurationSteps.forEach { $0.onCancel?() }
