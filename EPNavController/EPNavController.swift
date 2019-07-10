@@ -154,7 +154,7 @@ extension EPNavController: UINavigationControllerDelegate {
                 containerHeightConstraint: containerHeightConstraint,
                 navBar: navBar,
                 viewControllerCountable: ReturnSingleViewControllerCount())
-            animator.animateJustNavBar()
+            animator.animateNavBarTransition(animated: animated)
         }
         
         return super.popToRootViewController(animated: animated)

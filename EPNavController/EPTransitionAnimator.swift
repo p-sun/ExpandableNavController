@@ -26,7 +26,7 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let navBar: EPNavBar
     private weak var viewControllerCountable: EPViewCountrollerCountable?
     
-    private let animationDuration: TimeInterval = 0.3
+    private var animationDuration: TimeInterval = 0.3
     private var isAnimating = true
     
     init(presenting: Bool,
@@ -73,9 +73,16 @@ class EPTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         animateTransitionWithOptionalContext(animationSteps: [horizontalTransitionStep], context: context)
     }
     
-    func animateJustNavBar() {
+    // MARK: - Animate only the Nav Bar, not horizontally
+    
+    func animateNavBarTransition(animated: Bool) {
+        if !animated {
+            animationDuration = 0
+        }
         animateTransitionWithOptionalContext(animationSteps: [], context: nil)
     }
+    
+    // MARK: - Private
     
     private func animateTransitionWithOptionalContext(animationSteps: [AnimationStep], context: UIViewControllerContextTransitioning?) {
         let fadeOutOldSubviewsSteps = fadeAndRemoveSubviews(supplimentaryViewContainer.subviews,

@@ -39,7 +39,9 @@ class AnimationViewController1: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarLeft() -> EPBarButtonItem? {
-        return EPBarButtonItem(titleWithTapAction: "Long Left Button")
+        return EPBarButtonItem(title: "Animated Pop VC", didTapButton: { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+        })
     }
     
     override func nextViewController() -> UIViewController? {
@@ -61,7 +63,9 @@ class AnimationViewController2: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarRight() -> EPBarButtonItem? {
-        return EPBarButtonItem(titleWithTapAction: "Right Button")
+        return EPBarButtonItem(title: "Non-Animated Pop VC", didTapButton: { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: false)
+        })
     }
     
     override func nextViewController() -> UIViewController? {

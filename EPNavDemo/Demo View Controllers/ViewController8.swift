@@ -13,10 +13,7 @@ class ViewController8: UIViewController, EPNavControllerDelegate {
     
     @IBAction func didTapNext(_ sender: Any) {
         let navController = EPNavController(rootViewController: AnimationViewController0())
-        navigationController?.present(navController, animated: true, completion: {
-            // This works too if you want it
-            // self.navigationController?.popToRootViewController(animated: true)
-        })
+        navigationController?.present(navController, animated: true)
     }
     
     func supplementary() -> EPSupplementary {
