@@ -76,9 +76,8 @@ public class EPNavBar: UIView {
         leftButton = button
         button.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         
-        button.setAttributedTitle(NSAttributedString(
-            string: buttonItem.title,
-            attributes: EPNavController.appearance.backTextAttributes),for: .normal)
+        button.setAttributedTitle(EPNavController.appearance.backAttributedString(buttonItem.title),
+                                  for: .normal)
         button.titleLabel?.textColor = tintColor
 
         button.setCompressionResistance(.required, for: .horizontal)
@@ -100,9 +99,8 @@ public class EPNavBar: UIView {
         rightButton = button
         button.addTarget(self, action: #selector(rightButtonAction), for: .touchUpInside)
 
-        button.setAttributedTitle(NSAttributedString(
-            string: buttonItem.title,
-            attributes: EPNavController.appearance.backTextAttributes), for: .normal)
+        button.setAttributedTitle(EPNavController.appearance.backAttributedString(buttonItem.title),
+                                  for: .normal)
         button.titleLabel?.textColor = tintColor
         
         button.setCompressionResistance(.required, for: .horizontal)
@@ -121,9 +119,7 @@ public class EPNavBar: UIView {
     
     private func addTitleLabelSubview(_ title: String) -> UIView {
         let label = UILabel()
-        label.attributedText = NSAttributedString(
-            string: title,
-            attributes: EPNavController.appearance.titleTextAttributes)
+        label.attributedText = EPNavController.appearance.titleAttributedString(title)
         label.setCompressionResistance(.init(210), for: .horizontal)
         label.setHugging(.required, for: .horizontal)
 

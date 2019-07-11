@@ -22,11 +22,17 @@ public class EPNavController: UINavigationController {
         public var shadowColor: UIColor = #colorLiteral(red: 0.3450980392, green: 0.3843137255, blue: 0.4431372549, alpha: 1)
         public var shadowOpacity: Float = 0.4
         
-        public var titleTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
+        public var titleAttributedString: (_ text: String) -> NSAttributedString = { text in
+            let font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+            let attributes = [NSAttributedString.Key.font: font]
+            return NSAttributedString(string: text, attributes: attributes)
+        }
         
-        public var backTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)]
+        public var backAttributedString: (_ text: String) -> NSAttributedString = { text in
+            let font = UIFont.systemFont(ofSize: 17)
+            let attributes = [NSAttributedString.Key.font: font]
+            return NSAttributedString(string: text, attributes: attributes)
+        }
     }
     
     public var backgroundColor: UIColor = .white {
