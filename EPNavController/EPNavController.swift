@@ -74,7 +74,7 @@ public class EPNavController: UINavigationController {
         view.layer.maskedCorners = [.layerMinXMaxYCorner]
         return view
     }()
-
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,7 +85,7 @@ public class EPNavController: UINavigationController {
         
         delegate = self
         
-        interactor = EPEdgePanInteractor(attachTo: self)
+        interactor = EPEdgePanInteractor(attachTo: view)
         
         view.addSubview(shadowView)
         view.addSubview(containerView)
@@ -139,7 +139,7 @@ public class EPNavController: UINavigationController {
 }
 
 extension EPNavController: UINavigationControllerDelegate {
- 
+    
     private class ReturnSingleViewControllerCount: EPViewCountrollerCountable {
         func viewControllersCount() -> Int {
             return 1
@@ -182,6 +182,7 @@ extension EPNavController: UINavigationControllerDelegate {
                 navBar: navBar,
                 viewControllerCountable: self)
             interactor.shouldBeginDelegate = animator
+            interactor.delegate = self
             return animator
         case .pop:
             let animator = EPTransitionAnimator(
@@ -193,6 +194,7 @@ extension EPNavController: UINavigationControllerDelegate {
                 navBar: navBar,
                 viewControllerCountable: self)
             interactor.shouldBeginDelegate = animator
+            interactor.delegate = self
             return animator
         default:
             return nil
@@ -207,6 +209,12 @@ extension EPNavController: UINavigationControllerDelegate {
 extension EPNavController: EPViewCountrollerCountable {
     func viewControllersCount() -> Int {
         return viewControllers.count
+    }
+}
+
+extension EPNavController: EPEdgePanInteractorDelegate {
+    func epEdgePanInteractorDidBeginPopGesture(_ epEdgePanInteractor: EPEdgePanInteractor) {
+        popViewController(animated: true)
     }
 }
 

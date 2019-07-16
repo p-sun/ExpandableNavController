@@ -10,22 +10,25 @@ protocol EPEdgePanInteractorShouldBeginDelegate: class {
     func shouldBeginPanGesture() -> Bool
 }
 
+protocol EPEdgePanInteractorDelegate: class {
+    func epEdgePanInteractorDidBeginPopGesture(_ epEdgePanInteractor: EPEdgePanInteractor)
+}
+
 class EPEdgePanInteractor: UIPercentDrivenInteractiveTransition {
     
     var isActive: Bool = false
     
     weak var shouldBeginDelegate: EPEdgePanInteractorShouldBeginDelegate?
+    weak var delegate: EPEdgePanInteractorDelegate?
     
     private let transitionCompletionThreshold: CGFloat = 0.5
-    private let nav: UINavigationController
     
-    init(attachTo navController: UINavigationController) {
-        self.nav = navController
+    init(attachTo view: UIView) {
         super.init()
-        setupBackGesture(view: navController.view)
+        setupBackGesture(in: view)
     }
     
-    private func setupBackGesture(view: UIView) {
+    private func setupBackGesture(in view: UIView) {
         let swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackGesture(_:)))
         swipeBackGesture.edges = .left
         view.addGestureRecognizer(swipeBackGesture)
@@ -33,8 +36,18 @@ class EPEdgePanInteractor: UIPercentDrivenInteractiveTransition {
     
     @objc private func handleBackGesture(_ gesture: UIScreenEdgePanGestureRecognizer) {
         
+        guard let delegate = delegate else {
+            print("EPEdgePanInteractor Error: No delegate was assigned")
+            return
+        }
+        
+        guard let frameWidth = gesture.view?.frame.width else {
+            print("EPEdgePanInteractor Error: Gesture recognizer's view has no width")
+            return
+        }
+        
         let viewTranslation = gesture.translation(in: gesture.view?.superview)
-        let transitionProgress = viewTranslation.x / nav.view.frame.width
+        let transitionProgress = viewTranslation.x / frameWidth
         
         switch gesture.state {
         case .began:
@@ -47,7 +60,7 @@ class EPEdgePanInteractor: UIPercentDrivenInteractiveTransition {
             }
             
             isActive = true
-            nav.popViewController(animated: true)
+            delegate.epEdgePanInteractorDidBeginPopGesture(self)
         case .changed:
             if isActive {
                 update(transitionProgress)

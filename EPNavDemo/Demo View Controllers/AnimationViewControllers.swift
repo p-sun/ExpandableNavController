@@ -16,8 +16,8 @@ class AnimationViewController0: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarLeft() -> EPBarButtonItem? {
-        return EPBarButtonItem(title: "Cancel", didTapButton: {
-          self.dismiss(animated: true, completion: nil)
+        return EPBarButtonItem(title: "Cancel", didTapButton: { [weak self] in
+          self?.dismiss(animated: true, completion: nil)
         })
     }
 
