@@ -31,14 +31,22 @@ public extension EPNavControllerDelegate {
     }    
 }
 
-extension EPNavControllerDelegate where Self: UIViewController {
+public extension EPNavControllerDelegate where Self: UIViewController {
     
+    // Set minusOffsetForRoundedCorners to true so table will go under the nav bar
+    // And peek under the rounded corners
     @discardableResult
-    public func constrainTopToEPNavBarBottom(_ mainView: UIView, offset: CGFloat = 0) -> NSLayoutConstraint {
-        return mainView.constrainTopToTopLayoutGuide(
-            of: self,
-            inset: EPNavController.appearance.topNavFromLayoutGuide
-                + supplementary().containerHeight
-                + offset)
+    func constrainTopToEPNavBarBottom(_ mainView: UIView,
+                                      minusOffsetForRoundedCorners: Bool = true,
+                                      offset: CGFloat = 0) -> NSLayoutConstraint {
+        var offsetFromTop = EPNavController.appearance.topNavFromLayoutGuide
+            + supplementary().containerHeight
+            + offset
+        
+        if minusOffsetForRoundedCorners {
+            offsetFromTop -= EPNavController.appearance.navCornerRadius
+        }
+        
+        return mainView.constrainToTopLayoutGuide(of: self, offset: offsetFromTop)
     }
 }

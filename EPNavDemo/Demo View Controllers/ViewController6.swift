@@ -31,7 +31,7 @@ class ViewController6: UIViewController, EPNavControllerDelegate {
         super.viewDidLoad()
         
         view.addSubview(imageView)
-        constrainTopToEPNavBarBottom(imageView) // With this!
+        constrainTopToEPNavBarBottom(imageView, minusOffsetForRoundedCorners: false) // With this!
         imageView.constrainEdgesHorizontally(to: view, offset: 20)
         imageView.constrainHeight(100)
     }
