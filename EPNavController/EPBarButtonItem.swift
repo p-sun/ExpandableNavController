@@ -6,7 +6,7 @@
 //  Copyright © 2019 Paige Sun. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public enum EPNavBarCenter {
     case title(_ text: String)
