@@ -271,36 +271,38 @@ extension UIView {
     // Note: Constraint to layout guides on the sides
     @discardableResult
     func constrainWithinLayoutGuide(of viewController: UIViewController, insets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
-        let topConstraint = constrainTopToTopLayoutGuide(of: viewController, inset: insets.top)
+        let topConstraint = constrainToTopLayoutGuide(of: viewController, offset: insets.top)
         let horizontalConstraints = constrainEdgesHorizontally(to: viewController.view, leftInset: insets.left, rightInset: insets.right)
-        let bottomConstraint = constrainBottomToBottomLayoutGuide(of: viewController, inset: -insets.bottom)
+        let bottomConstraint = constrainToBottomLayoutGuide(of: viewController, offset: -insets.bottom)
         return [topConstraint] + horizontalConstraints + [bottomConstraint]
     }
     
     @discardableResult
-    func constrainTopToTopLayoutGuide(of viewController: UIViewController, inset: CGFloat = 0) -> NSLayoutConstraint {
+    func constrainToTopLayoutGuide(of viewController: UIViewController, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0) -> NSLayoutConstraint {
         prepareForAutolayout()
         
+        let currentAnchor = anchor ?? topAnchor
         let topConstraint: NSLayoutConstraint
         if #available(iOS 11.0, *) {
-            topConstraint = topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: inset)
+            topConstraint = currentAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: offset)
         } else {
-            topConstraint = topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor, constant: inset)
+            topConstraint = currentAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor, constant: offset)
         }
         topConstraint.isActive = true
-
+        
         return topConstraint
     }
-
+    
     @discardableResult
-    func constrainBottomToBottomLayoutGuide(of viewController: UIViewController, inset: CGFloat = 0) -> NSLayoutConstraint {
+    func constrainToBottomLayoutGuide(of viewController: UIViewController, _ anchor: NSLayoutYAxisAnchor? = nil, offset: CGFloat = 0) -> NSLayoutConstraint {
         prepareForAutolayout()
         
+        let anchor = anchor ?? bottomAnchor
         let bottomConstraint: NSLayoutConstraint
         if #available(iOS 11.0, *) {
-            bottomConstraint = bottomAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.bottomAnchor, constant: inset)
+            bottomConstraint = anchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.bottomAnchor, constant: offset)
         } else {
-            bottomConstraint = bottomAnchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor, constant: inset)
+            bottomConstraint = anchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor, constant: offset)
         }
         bottomConstraint.isActive = true
         
