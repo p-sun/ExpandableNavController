@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1C5EC422F0CC2E0002C2FD /* EPNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EBB22F0CC2E0002C2FD /* EPNavControllerDelegate.swift */; };
+		9B1C5EC522F0CC2E0002C2FD /* EPEdgePanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EBC22F0CC2E0002C2FD /* EPEdgePanInteractor.swift */; };
+		9B1C5EC622F0CC2E0002C2FD /* EPBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EBD22F0CC2E0002C2FD /* EPBarButtonItem.swift */; };
+		9B1C5EC722F0CC2E0002C2FD /* EPSupplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EBE22F0CC2E0002C2FD /* EPSupplementary.swift */; };
+		9B1C5EC822F0CC2E0002C2FD /* EPNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EBF22F0CC2E0002C2FD /* EPNavController.swift */; };
+		9B1C5EC922F0CC2E0002C2FD /* EPNavControllerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EC022F0CC2E0002C2FD /* EPNavControllerAnimator.swift */; };
+		9B1C5ECA22F0CC2E0002C2FD /* EPNavBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EC122F0CC2E0002C2FD /* EPNavBarBackButton.swift */; };
+		9B1C5ECB22F0CC2E0002C2FD /* EPTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EC222F0CC2E0002C2FD /* EPTransitionAnimator.swift */; };
+		9B1C5ECC22F0CC2E0002C2FD /* EPNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C5EC322F0CC2E0002C2FD /* EPNavBar.swift */; };
 		9BD5465D22D1A4D300514D32 /* EPNavController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5465322D1A4D300514D32 /* EPNavController.framework */; };
 		9BD5466222D1A4D300514D32 /* EPNavControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5466122D1A4D300514D32 /* EPNavControllerTests.swift */; };
 		9BD5466422D1A4D300514D32 /* EPNavController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD5465622D1A4D300514D32 /* EPNavController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BD5467822D1A4F600514D32 /* Constraints+Activation+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5466F22D1A4F500514D32 /* Constraints+Activation+Priority.swift */; };
 		9BD5467922D1A4F600514D32 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467022D1A4F500514D32 /* UIView+Constraints.swift */; };
 		9BD5467A22D1A4F600514D32 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467122D1A4F500514D32 /* Constrainable.swift */; };
-		9BD5467B22D1A4F600514D32 /* EPNavControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */; };
-		9BD5467C22D1A4F600514D32 /* EPNavBarBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */; };
-		9BD5467D22D1A4F600514D32 /* EPNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467422D1A4F500514D32 /* EPNavController.swift */; };
-		9BD5467E22D1A4F600514D32 /* EPNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467522D1A4F500514D32 /* EPNavBar.swift */; };
-		9BD5467F22D1A4F600514D32 /* EPTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */; };
-		9BD5468022D1A4F600514D32 /* EPEdgePanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */; };
 		9BD5468A22D1A57700514D32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5468922D1A57700514D32 /* AppDelegate.swift */; };
 		9BD5468C22D1A57700514D32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5468B22D1A57700514D32 /* ViewController.swift */; };
 		9BD5468F22D1A57700514D32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5468D22D1A57700514D32 /* Main.storyboard */; };
@@ -43,8 +46,6 @@
 		9BD546CE22D1A88A00514D32 /* Constraints+Activation+Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CB22D1A88A00514D32 /* Constraints+Activation+Priority.swift */; };
 		9BD546CF22D1A88A00514D32 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CC22D1A88A00514D32 /* UIView+Constraints.swift */; };
 		9BD546D022D1A88A00514D32 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546CD22D1A88A00514D32 /* Constrainable.swift */; };
-		9BD546D222D1A95300514D32 /* EPSupplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546D122D1A95300514D32 /* EPSupplementary.swift */; };
-		9BD546D422D1A97D00514D32 /* EPBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */; };
 		9BD546DC22D1AB8500514D32 /* EPNavController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5465322D1A4D300514D32 /* EPNavController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BD546EB22D1B53900514D32 /* EPAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BD546EA22D1B53900514D32 /* EPAssets.xcassets */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B1C5EBB22F0CC2E0002C2FD /* EPNavControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavControllerDelegate.swift; sourceTree = "<group>"; };
+		9B1C5EBC22F0CC2E0002C2FD /* EPEdgePanInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPEdgePanInteractor.swift; sourceTree = "<group>"; };
+		9B1C5EBD22F0CC2E0002C2FD /* EPBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPBarButtonItem.swift; sourceTree = "<group>"; };
+		9B1C5EBE22F0CC2E0002C2FD /* EPSupplementary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPSupplementary.swift; sourceTree = "<group>"; };
+		9B1C5EBF22F0CC2E0002C2FD /* EPNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavController.swift; sourceTree = "<group>"; };
+		9B1C5EC022F0CC2E0002C2FD /* EPNavControllerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavControllerAnimator.swift; sourceTree = "<group>"; };
+		9B1C5EC122F0CC2E0002C2FD /* EPNavBarBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBarBackButton.swift; sourceTree = "<group>"; };
+		9B1C5EC222F0CC2E0002C2FD /* EPTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPTransitionAnimator.swift; sourceTree = "<group>"; };
+		9B1C5EC322F0CC2E0002C2FD /* EPNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBar.swift; sourceTree = "<group>"; };
 		9BD5465322D1A4D300514D32 /* EPNavController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EPNavController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD5465622D1A4D300514D32 /* EPNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPNavController.h; sourceTree = "<group>"; };
 		9BD5465722D1A4D300514D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,12 +114,6 @@
 		9BD5466F22D1A4F500514D32 /* Constraints+Activation+Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constraints+Activation+Priority.swift"; sourceTree = "<group>"; };
 		9BD5467022D1A4F500514D32 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		9BD5467122D1A4F500514D32 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
-		9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavControllerDelegate.swift; sourceTree = "<group>"; };
-		9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBarBackButton.swift; sourceTree = "<group>"; };
-		9BD5467422D1A4F500514D32 /* EPNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavController.swift; sourceTree = "<group>"; };
-		9BD5467522D1A4F500514D32 /* EPNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPNavBar.swift; sourceTree = "<group>"; };
-		9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPTransitionAnimator.swift; sourceTree = "<group>"; };
-		9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EPEdgePanInteractor.swift; sourceTree = "<group>"; };
 		9BD5468722D1A57700514D32 /* EPNavDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPNavDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD5468922D1A57700514D32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BD5468B22D1A57700514D32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +142,6 @@
 		9BD546CB22D1A88A00514D32 /* Constraints+Activation+Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constraints+Activation+Priority.swift"; sourceTree = "<group>"; };
 		9BD546CC22D1A88A00514D32 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		9BD546CD22D1A88A00514D32 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
-		9BD546D122D1A95300514D32 /* EPSupplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPSupplementary.swift; sourceTree = "<group>"; };
-		9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPBarButtonItem.swift; sourceTree = "<group>"; };
 		9BD546EA22D1B53900514D32 /* EPAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EPAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,15 +205,16 @@
 			isa = PBXGroup;
 			children = (
 				9BD5466D22D1A4F500514D32 /* Utilities */,
+				9B1C5EBD22F0CC2E0002C2FD /* EPBarButtonItem.swift */,
+				9B1C5EBC22F0CC2E0002C2FD /* EPEdgePanInteractor.swift */,
+				9B1C5EC322F0CC2E0002C2FD /* EPNavBar.swift */,
+				9B1C5EC122F0CC2E0002C2FD /* EPNavBarBackButton.swift */,
+				9B1C5EBF22F0CC2E0002C2FD /* EPNavController.swift */,
+				9B1C5EBB22F0CC2E0002C2FD /* EPNavControllerDelegate.swift */,
+				9B1C5EBE22F0CC2E0002C2FD /* EPSupplementary.swift */,
+				9B1C5EC222F0CC2E0002C2FD /* EPTransitionAnimator.swift */,
+				9B1C5EC022F0CC2E0002C2FD /* EPNavControllerAnimator.swift */,
 				9BD546EA22D1B53900514D32 /* EPAssets.xcassets */,
-				9BD5467422D1A4F500514D32 /* EPNavController.swift */,
-				9BD5467222D1A4F500514D32 /* EPNavControllerDelegate.swift */,
-				9BD5467522D1A4F500514D32 /* EPNavBar.swift */,
-				9BD546D122D1A95300514D32 /* EPSupplementary.swift */,
-				9BD546D322D1A97D00514D32 /* EPBarButtonItem.swift */,
-				9BD5467322D1A4F500514D32 /* EPNavBarBackButton.swift */,
-				9BD5467722D1A4F600514D32 /* EPEdgePanInteractor.swift */,
-				9BD5467622D1A4F500514D32 /* EPTransitionAnimator.swift */,
 				9BD5465622D1A4D300514D32 /* EPNavController.h */,
 				9BD5465722D1A4D300514D32 /* Info.plist */,
 			);
@@ -502,17 +505,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD5467F22D1A4F600514D32 /* EPTransitionAnimator.swift in Sources */,
 				9BD5467A22D1A4F600514D32 /* Constrainable.swift in Sources */,
-				9BD5467B22D1A4F600514D32 /* EPNavControllerDelegate.swift in Sources */,
+				9B1C5EC422F0CC2E0002C2FD /* EPNavControllerDelegate.swift in Sources */,
+				9B1C5EC722F0CC2E0002C2FD /* EPSupplementary.swift in Sources */,
 				9BD5467822D1A4F600514D32 /* Constraints+Activation+Priority.swift in Sources */,
-				9BD546D422D1A97D00514D32 /* EPBarButtonItem.swift in Sources */,
-				9BD5468022D1A4F600514D32 /* EPEdgePanInteractor.swift in Sources */,
+				9B1C5ECC22F0CC2E0002C2FD /* EPNavBar.swift in Sources */,
+				9B1C5EC922F0CC2E0002C2FD /* EPNavControllerAnimator.swift in Sources */,
+				9B1C5ECB22F0CC2E0002C2FD /* EPTransitionAnimator.swift in Sources */,
 				9BD5467922D1A4F600514D32 /* UIView+Constraints.swift in Sources */,
-				9BD546D222D1A95300514D32 /* EPSupplementary.swift in Sources */,
-				9BD5467D22D1A4F600514D32 /* EPNavController.swift in Sources */,
-				9BD5467C22D1A4F600514D32 /* EPNavBarBackButton.swift in Sources */,
-				9BD5467E22D1A4F600514D32 /* EPNavBar.swift in Sources */,
+				9B1C5EC522F0CC2E0002C2FD /* EPEdgePanInteractor.swift in Sources */,
+				9B1C5EC822F0CC2E0002C2FD /* EPNavController.swift in Sources */,
+				9B1C5EC622F0CC2E0002C2FD /* EPBarButtonItem.swift in Sources */,
+				9B1C5ECA22F0CC2E0002C2FD /* EPNavBarBackButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

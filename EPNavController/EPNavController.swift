@@ -152,15 +152,16 @@ extension EPNavController: UINavigationControllerDelegate {
         }
         
         if let rootViewController = viewControllers.first {
-            let animator = EPTransitionAnimator(
-                presenting: true,
+            
+            let controllerAnimator = EPNavControllerAnimator(
+                navBar: navBar,
+                supplementaryContainer: containerView,
+                containerHeightConstraint: containerHeightConstraint,
+                viewControllerCountable: ReturnSingleViewControllerCount(),
                 toNavDelegate: rootViewController as? EPNavControllerDelegate,
                 fromNavDelegate: self as? EPNavControllerDelegate,
-                supplimentaryViewContainer: containerView,
-                containerHeightConstraint: containerHeightConstraint,
-                navBar: navBar,
-                viewControllerCountable: ReturnSingleViewControllerCount())
-            animator.animateNavBarTransition(animated: animated)
+                animated: animated)
+            controllerAnimator.startAnimation()
         }
         
         return super.popToRootViewController(animated: animated)
@@ -173,29 +174,37 @@ extension EPNavController: UINavigationControllerDelegate {
         }
         switch operation {
         case .push:
-            let animator = EPTransitionAnimator(
+            let controllerAnimator = EPNavControllerAnimator(
+                navBar: navBar,
+                supplementaryContainer: containerView,
+                containerHeightConstraint: containerHeightConstraint,
+                viewControllerCountable: self,
+                toNavDelegate: toVC as? EPNavControllerDelegate,
+                fromNavDelegate: fromVC as? EPNavControllerDelegate,
+                animated: true)
+            let transitionAnimator = EPTransitionAnimator(
                 presenting: true,
-                toNavDelegate: toVC as? EPNavControllerDelegate,
-                fromNavDelegate: fromVC as? EPNavControllerDelegate,
-                supplimentaryViewContainer: containerView,
-                containerHeightConstraint: containerHeightConstraint,
-                navBar: navBar,
-                viewControllerCountable: self)
-            interactor.shouldBeginDelegate = animator
+                controllerAnimator: controllerAnimator)
+
+            interactor.shouldBeginDelegate = transitionAnimator
             interactor.delegate = self
-            return animator
+            return transitionAnimator
         case .pop:
-            let animator = EPTransitionAnimator(
-                presenting: false,
+            let controllerAnimator = EPNavControllerAnimator(
+                navBar: navBar,
+                supplementaryContainer: containerView,
+                containerHeightConstraint: containerHeightConstraint,
+                viewControllerCountable: self,
                 toNavDelegate: toVC as? EPNavControllerDelegate,
                 fromNavDelegate: fromVC as? EPNavControllerDelegate,
-                supplimentaryViewContainer: containerView,
-                containerHeightConstraint: containerHeightConstraint,
-                navBar: navBar,
-                viewControllerCountable: self)
-            interactor.shouldBeginDelegate = animator
+                animated: true)
+            let transitionAnimator = EPTransitionAnimator(
+                presenting: false,
+                controllerAnimator: controllerAnimator)
+            
+            interactor.shouldBeginDelegate = transitionAnimator
             interactor.delegate = self
-            return animator
+            return transitionAnimator
         default:
             return nil
         }

@@ -8,17 +8,38 @@
 
 import UIKit
 
-public enum EPNavBarCenter {
-    case title(_ text: String)
-    case image(_ image: UIImage, height: CGFloat)
+public struct EPNavBarCenter {
+    let view: UIView
+    
+    public init(title: String) {
+        let label = UILabel()
+        label.attributedText = EPNavController.appearance.titleAttributedString(title)
+        label.setCompressionResistance(.init(210), for: .horizontal)
+        label.setHugging(.required, for: .horizontal)
+        view = label
+    }
+    
+    public init(image: UIImage, height: CGFloat) {
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.setCompressionResistance(.init(210), for: .horizontal)
+        imageView.constrainHeight(height)
+        view = imageView
+    }
 }
 
 public struct EPBarButtonItem {
-    let title: String
+    let button = UIButton()
     let didTapButton: (() -> Void)?
     
     public init(title: String, didTapButton: (() -> Void)?) {
-        self.title = title
+        button.setAttributedTitle(EPNavController.appearance.backAttributedString(title),
+                                  for: .normal)
+        
+        button.setCompressionResistance(.required, for: .horizontal)
+        button.setHugging(.required, for: .horizontal)
+        
         self.didTapButton = didTapButton
     }
 }

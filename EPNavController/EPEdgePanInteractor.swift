@@ -11,7 +11,7 @@ protocol EPEdgePanInteractorShouldBeginDelegate: class {
 }
 
 protocol EPEdgePanInteractorDelegate: class {
-    func epEdgePanInteractorDidBeginPopGesture(_ epEdgePanInteractor: EPEdgePanInteractor)
+     func epEdgePanInteractorDidBeginPopGesture(_ epEdgePanInteractor: EPEdgePanInteractor)
 }
 
 class EPEdgePanInteractor: UIPercentDrivenInteractiveTransition {
@@ -20,7 +20,7 @@ class EPEdgePanInteractor: UIPercentDrivenInteractiveTransition {
     
     weak var shouldBeginDelegate: EPEdgePanInteractorShouldBeginDelegate?
     weak var delegate: EPEdgePanInteractorDelegate?
-    
+
     private let transitionCompletionThreshold: CGFloat = 0.5
     
     init(attachTo view: UIView) {

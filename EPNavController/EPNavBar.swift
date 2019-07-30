@@ -11,24 +11,6 @@ public class EPNavBar: UIView {
     
     var backButtonPressed: (() -> Void)?
 
-    var centerSubviews: [UIView] {
-        get {
-            return centerContent.subviews
-        }
-    }
-    
-    var leftSubviews: [UIView] {
-        get {
-            return leftContent.subviews
-        }
-    }
-    
-    var rightSubviews: [UIView] {
-        get {
-            return rightContent.subviews
-        }
-    }
-    
     lazy var backButton: EPNavBarBackButton = {
         let button = EPNavBarBackButton()
         button.alpha = 0
@@ -37,16 +19,13 @@ public class EPNavBar: UIView {
     }()
     
     var centerWidthConstraint: NSLayoutConstraint!
-
-    private var centerContent = UIView()
-    private var leftContent = UIView()
-    private var rightContent = UIView()
+    
+    let centerContent = UIView()
+    let leftContent = UIView()
+    let rightContent = UIView()
+    
     private var leftButtonTapped: (() -> Void)?
     private var rightButtonTapped: (() -> Void)?
-    
-    // Keep references so it doesn't get deallocated
-    private var rightButton = UIButton()
-    private var leftButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -60,93 +39,75 @@ public class EPNavBar: UIView {
     
     // MARK: - Public
     
-    public func setCenter(_ center: EPNavBarCenter) -> UIView {
-        switch center {
-        case .title(let title):
-            return addTitleLabelSubview(title)
-        case .image(let image, let height):
-            return addTitleImageViewSubview(image, height: height)
+    public func setCenter(_ center: EPNavBarCenter?, onCancel: (() -> Void)? = nil) {
+        guard let center = center else {
+            centerContent.subviews.forEach({ $0.removeFromSuperview() })
+            return
         }
+        
+        let centerView = center.view
+        let parentView = UIView()
+        parentView.addSubview(centerView)
+        centerView.constrainEdges(to: parentView)
+        centerContent.addSubview(parentView)
+
+        // Allow center view to be referenced by the VC and its alpha changed from the VC
+        // ParentView's alpha is changed during EPTransitionAnimator's animations
+        parentView.constrainCenterY(to: centerContent)
+        parentView.constrainWidth(to: centerContent, relation: .equalOrLess)
+        parentView.constrainCenterX(to: self)
     }
     
-    public func setLeftBarButtonItem(_ buttonItem: EPBarButtonItem) -> UIView {
+    public func setLeftBarButtonItem(_ buttonItem: EPBarButtonItem?) {
+        guard let buttonItem = buttonItem else {
+            leftContent.subviews.forEach { $0.removeFromSuperview() }
+            return
+        }
+        
         leftButtonTapped = buttonItem.didTapButton
 
-        let button = UIButton()
-        leftButton = button
+        let button = buttonItem.button
+        button.titleLabel?.textColor = tintColor
         button.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         
-        button.setAttributedTitle(EPNavController.appearance.backAttributedString(buttonItem.title),
-                                  for: .normal)
-        button.titleLabel?.textColor = tintColor
-
-        button.setCompressionResistance(.required, for: .horizontal)
-        button.setHugging(.required, for: .horizontal)
+        let parentView = UIView()
+        parentView.addSubview(button)
+        button.constrainEdges(to: parentView)
         
-        leftContent.addSubview(button)
-        button.constrainLeft(to: leftContent)
-        button.constrainCenterY(to: leftContent)
-        button.constrainRight(to: leftContent, priority: .defaultLow)
-
-        return button
+        leftContent.addSubview(parentView)
+        bringSubviewToFront(parentView)
+        parentView.constrainLeft(to: leftContent)
+        parentView.constrainCenterY(to: leftContent)
+        parentView.constrainRight(to: leftContent, priority: .defaultLow)
     }
-
     
-    public func setRightBarButtonItem(_ buttonItem: EPBarButtonItem) -> UIView {
+    public func setRightBarButtonItem(_ buttonItem: EPBarButtonItem?) {
+        guard let buttonItem = buttonItem else {
+            rightContent.subviews.forEach { $0.removeFromSuperview() }
+            return
+        }
         rightButtonTapped = buttonItem.didTapButton
 
-        let button = UIButton()
-        rightButton = button
+        let button = buttonItem.button
+        button.titleLabel?.textColor = tintColor
         button.addTarget(self, action: #selector(rightButtonAction), for: .touchUpInside)
 
-        button.setAttributedTitle(EPNavController.appearance.backAttributedString(buttonItem.title),
-                                  for: .normal)
-        button.titleLabel?.textColor = tintColor
+        let parentView = UIView()
+        parentView.addSubview(button)
+        button.constrainEdges(to: parentView)
         
-        button.setCompressionResistance(.required, for: .horizontal)
-        button.setHugging(.required, for: .horizontal)
-
-        rightContent.addSubview(button)
-        bringSubviewToFront(button)
-        button.constrainRight(to: rightContent)
-        button.constrainLeft(to: rightContent, priority: .defaultLow)
-        button.constrainCenterY(to: rightContent)
-        
-        return button
+        rightContent.addSubview(parentView)
+        bringSubviewToFront(parentView)
+        parentView.constrainRight(to: rightContent)
+        parentView.constrainLeft(to: rightContent, priority: .defaultLow)
+        parentView.constrainCenterY(to: rightContent)
     }
     
     // MARK: - Private
     
-    private func addTitleLabelSubview(_ title: String) -> UIView {
-        let label = UILabel()
-        label.attributedText = EPNavController.appearance.titleAttributedString(title)
-        label.setCompressionResistance(.init(210), for: .horizontal)
-        label.setHugging(.required, for: .horizontal)
-
-        centerContent.addSubview(label)
-        label.constrainCenterY(to: centerContent)
-        label.constrainWidth(to: centerContent, relation: .equalOrLess)
-        label.constrainCenterX(to: self)
-        return label
-    }
-    
-    private func addTitleImageViewSubview(_ image: UIImage, height: CGFloat) -> UIView {
-        let imageView = UIImageView()
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFit
-        imageView.setCompressionResistance(.init(210), for: .horizontal)
-
-        centerContent.addSubview(imageView)
-        imageView.constrainCenterY(to: centerContent)
-        imageView.constrainHeight(height)
-        imageView.constrainWidth(to: centerContent, relation: .equalOrLess)
-        imageView.constrainCenterX(to: self)
-        return imageView
-    }
-    
     private func commonInit() {
-        addSubview(backButton)
         addSubview(leftContent)
+        addSubview(backButton)
         addSubview(centerContent)
         addSubview(rightContent)
         constraintViews()
