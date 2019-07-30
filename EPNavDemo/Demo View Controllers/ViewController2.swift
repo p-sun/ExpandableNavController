@@ -12,7 +12,7 @@ import EPNavController
 class ViewController2: UIViewController, EPNavControllerDelegate {
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "sushi"), height: 60)
+        return EPNavBarCenter(image: #imageLiteral(resourceName: "sushi"), height: 60)
     }
     
     func supplementary() -> EPSupplementary {

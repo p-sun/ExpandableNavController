@@ -35,7 +35,7 @@ class AnimationViewController1: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return EPNavBarCenter.title("A very long title")
+        return EPNavBarCenter(title: "A very long title")
     }
     
     func navBarLeft() -> EPBarButtonItem? {
@@ -59,7 +59,7 @@ class AnimationViewController2: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return EPNavBarCenter.title("A very long title")
+        return EPNavBarCenter(title: "A very long title")
     }
     
     func navBarRight() -> EPBarButtonItem? {
@@ -83,7 +83,7 @@ class AnimationViewController3: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "water"), height: 60)
+        return EPNavBarCenter(image: #imageLiteral(resourceName: "water"), height: 60)
     }
     
     func navBarRight() -> EPBarButtonItem? {
@@ -102,7 +102,7 @@ class AnimationViewController4: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "sushi"), height: 60)
+        return EPNavBarCenter(image: #imageLiteral(resourceName: "sushi"), height: 60)
     }
     
     func navBarRight() -> EPBarButtonItem? {
@@ -123,7 +123,7 @@ class AnimationViewController5: DemoViewController, EPNavControllerDelegate {
     }
 
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "sushi"), height: 60)
+        return EPNavBarCenter(image: #imageLiteral(resourceName: "sushi"), height: 60)
     }
 
     func navBarLeft() -> EPBarButtonItem? {
@@ -144,7 +144,7 @@ class AnimationViewController6: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .title("A very very long title")
+        return EPNavBarCenter(title: "A very very long title")
     }
     
     override func nextViewController() -> UIViewController? {
@@ -161,7 +161,7 @@ class AnimationViewController7: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .title("A very long title")
+        return EPNavBarCenter(title: "A very long title")
     }
     
     func navBarLeft() -> EPBarButtonItem? {
@@ -182,7 +182,7 @@ class AnimationViewController8: DemoViewController, EPNavControllerDelegate {
     }
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .image(#imageLiteral(resourceName: "sushi"), height: 60)
+        return EPNavBarCenter(image: #imageLiteral(resourceName: "sushi"), height: 60)
     }
     
     func navBarLeft() -> EPBarButtonItem? {

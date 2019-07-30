@@ -12,7 +12,7 @@ import EPNavController
 class ViewController3: UIViewController, EPNavControllerDelegate {
     
     func navBarCenter() -> EPNavBarCenter? {
-        return .title("Or a Title String")
+        return EPNavBarCenter(title: "Or a Title String")
     }
 }
 
